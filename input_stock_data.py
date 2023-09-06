@@ -3,6 +3,7 @@ from datetime import datetime
 today = datetime.today()
 datetoday = today.strftime("%d.%m.%Y")
 
+trading_journal_entry = []
 
 def handle_input_date():
     """
@@ -33,6 +34,9 @@ def input_date_today():
     Placeholder print
     """
     print(f"The current date '{datetoday}' has been parsed to your journal.")
+
+    trading_journal_entry.append(datetoday)
+    print(trading_journal_entry)
     
 
 def input_date_manually():
@@ -47,6 +51,9 @@ def input_date_manually():
         print(f"Your input '{datetoday}' has been parsed to your journal.")
     except ValueError:
         print("Invalid date format, please use DD.MM.YYYY format.")
+    
+    trading_journal_entry.append(date_str)
+    print(trading_journal_entry)
 
 
 def main():
