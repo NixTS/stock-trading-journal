@@ -1,3 +1,4 @@
+from datetime import datetime
 from tabulate import tabulate
 
 import re
@@ -96,7 +97,33 @@ def num_of_trades():
             handle_input_past_trades()
         else:
             line_break()
-            print("Invalid format, please enter '1' or '2' or '3'.")
+            print("Invalid format, please enter '1' or '2'.")
+
+
+def todays_trades():
+    """
+    Display all past trades with today's date.
+    """
+    today_date_str = datetime.now().strftime('%d.%m.%Y')
+
+    filtered_rows = [row for row in data if any(row) and row[0] == today_date_str]
+
+    if not filtered_rows:
+        print("No trades with today's date found.")
+        return
+    
+    line_break()
+    headers = stock_data.row_values(1)
+
+    print(f"Here you can see all trades from today:\n")
+    print(tabulate(filtered_rows, headers, tablefmt="github"))
+    
+    choice = input("\nPress '1' to go back to the past trades menu:")
+    if choice == "1":
+        handle_input_past_trades()
+    else:
+        line_break()
+        print("Invalid format, please enter '1'.")
 
 
 
