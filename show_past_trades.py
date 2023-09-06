@@ -37,10 +37,8 @@ def handle_input_past_trades():
     print("Or:")
     print("Press '2', if you want see todays trades.")
     print("Or:")
-    print("Press '3', if you want see all your past trades.")
+    print("Press '3', if you want see all your past trades.\n")
 
-
-    
     while True:
         choice = input("Enter your choice: ")
         if choice == "1":
@@ -52,6 +50,39 @@ def handle_input_past_trades():
         else:
             line_break()
             print("Invalid format, please enter '1' or '2' or '3'.")
+
+def num_of_trades():
+    """
+    Enter a number to display past trades.
+    If the number is higher than all past trades,
+    an error message will appear with the number of all past trades
+    """
+    line_break()
+    num_of_past_trades = input("Enter the number of last trades to display: ")
+
+    try:
+        num_of_past_trades = int(num_of_past_trades)
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        return
+
+    total_rows_with_data = sum(1 for row in data if any(row))
+
+    if num_of_past_trades <= 0:
+        print("Invalid input. Please enter a positive number.")
+        return
+
+    if num_of_past_trades > total_rows_with_data:
+        print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.")
+        return
+
+    line_break()
+    headers = stock_data.row_values(1)
+    last_n_rows = [row for row in reversed(data) if any(row)][:num_of_past_trades]
+
+    print(f"Here you can see your past {num_of_past_trades} trades:\n")
+    if num_of_past_trades <= total_rows_with_data:
+        print(tabulate(last_n_rows, headers, tablefmt="github"))
 
 
 
