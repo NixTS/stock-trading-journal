@@ -95,9 +95,34 @@ def input_direction():
         else:
             print("Invalid input, please enter 'L' for Long, and 'S' for a short trade.")
 
+
+def input_prices():
+    print("Enter your entry and exit prices.")
+
+    prices = []
+
+    while True:
+        entry_price = input("Enter your trade entry price: ")
+
+        if re.match(r"^([\s\d]+)$", entry_price):
+            prices.append(entry_price)
+            break
+        else:
+            print("Invalid input, please enter a number.")
+
+    while True:
+        exit_price = input("Enter your trade exit price: ")
+
+        if re.match(r"^([\s\d]+)$", exit_price):
+            prices.append(exit_price)
+            break
+        else:
+            print("Invalid input, please enter a number.")
+
+    trading_journal_entry.extend(prices)
     print(trading_journal_entry)
 
-
+    
 def main():
     """
     Run all program functions
@@ -106,6 +131,7 @@ def main():
     input_ticker()
     input_shares_amount()
     input_direction()
+    input_prices()
 
 
 print("Please input your stock trading data by following the instructions given to you.\n")
