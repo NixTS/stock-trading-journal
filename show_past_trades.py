@@ -115,7 +115,7 @@ def todays_trades():
     line_break()
     headers = stock_data.row_values(1)
 
-    print(f"Here you can see all trades from today:\n")
+    print("Here you can see all trades from today:\n")
     print(tabulate(filtered_rows, headers, tablefmt="github"))
     
     choice = input("\nPress '1' to go back to the past trades menu:")
@@ -125,6 +125,27 @@ def todays_trades():
         line_break()
         print("Invalid format, please enter '1'.")
 
+
+def all_trades():
+    """
+    Display all trades in google sheet without header row.
+    """
+    headers = stock_data.row_values(1)
+    all_rows = list(data)
+
+    if all_rows and all_rows[0] == headers:
+        all_rows.pop(0)
+
+    line_break()
+    print("Here you can see all your past trades:\n")
+    print(tabulate(all_rows, headers, tablefmt="github"))
+
+    choice = input("\nPress '1' to go back to the past trades menu:")
+    if choice == "1":
+        handle_input_past_trades()
+    else:
+        line_break()
+        print("Invalid format, please enter '1'.")
 
 
 def main():
