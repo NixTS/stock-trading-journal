@@ -77,7 +77,26 @@ def input_shares_amount():
             print("Invalid input, please enter a number.")
 
     trading_journal_entry.append(shares_amount)
+
+
+def input_direction():
+    print("For a long trade please enter 'L'.")
+    print("For a short short please enter 'S'.")
+
+    while True:
+        direction = input("Enter trade direction: ")
+
+        if re.match(r"^[lL]$", direction):
+            trading_journal_entry.append("Long")
+            break
+        elif re.match(r"^[sS]$", direction):
+            trading_journal_entry.append("Short")        
+            break
+        else:
+            print("Invalid input, please enter 'L' for Long, and 'S' for a short trade.")
+
     print(trading_journal_entry)
+
 
 def main():
     """
@@ -86,6 +105,7 @@ def main():
     handle_input_date()
     input_ticker()
     input_shares_amount()
+    input_direction()
 
 
 print("Please input your stock trading data by following the instructions given to you.\n")
