@@ -83,8 +83,20 @@ def num_of_trades():
     print(f"Here you can see your past {num_of_past_trades} trades:\n")
     if num_of_past_trades <= total_rows_with_data:
         print(tabulate(last_n_rows, headers, tablefmt="github"))
+        print("\n")
 
-
+    while True:
+        print("Press '1' to enter another number of past trades.")
+        print("Or:")
+        print("Press '2' to go back to the past trades menu.\n")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            num_of_trades()
+        elif choice == "2":
+            handle_input_past_trades()
+        else:
+            line_break()
+            print("Invalid format, please enter '1' or '2' or '3'.")
 
 
 

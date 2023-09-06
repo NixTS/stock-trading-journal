@@ -85,7 +85,7 @@ def input_date_manually():
     except ValueError:
         line_break()
         print(ValueError)
-        print("Invalid date format, please use DD.MM.YYYY format.")
+        print("Invalid date or format, please use DD.MM.YYYY format.")
         input_date_manually()
     
     trading_journal_entry.append(date_str)
