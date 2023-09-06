@@ -2,6 +2,7 @@ from datetime import datetime
 from tabulate import tabulate
 
 import re
+import time
 
 import gspread
 from google.oauth2.service_account import Credentials
@@ -59,7 +60,7 @@ def num_of_trades():
     an error message will appear with the number of all past trades
     """
     line_break()
-    num_of_past_trades = input("Enter the number of last trades to display: ")
+    num_of_past_trades = input("Enter the number of last trades to display: \n")
 
     try:
         num_of_past_trades = int(num_of_past_trades)
@@ -74,8 +75,9 @@ def num_of_trades():
         return
 
     if num_of_past_trades > total_rows_with_data:
+        line_break()
         print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.")
-        return
+        num_of_trades()
 
     line_break()
     headers = stock_data.row_values(1)
@@ -117,13 +119,16 @@ def todays_trades():
 
     print("Here you can see all trades from today:\n")
     print(tabulate(filtered_rows, headers, tablefmt="github"))
+    print("\n")
     
-    choice = input("\nPress '1' to go back to the past trades menu:")
-    if choice == "1":
-        handle_input_past_trades()
-    else:
-        line_break()
-        print("Invalid format, please enter '1'.")
+    while True:
+        print("Press '1' to go back to the past trades menu.\n")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            handle_input_past_trades()
+        else:
+            line_break()
+            print("Invalid format, please enter '1'.")
 
 
 def all_trades():
@@ -138,14 +143,19 @@ def all_trades():
 
     line_break()
     print("Here you can see all your past trades:\n")
+    print("This may take a while . . .\n")
+    time.sleep(2)
     print(tabulate(all_rows, headers, tablefmt="github"))
+    print("\n")
 
-    choice = input("\nPress '1' to go back to the past trades menu:")
-    if choice == "1":
-        handle_input_past_trades()
-    else:
-        line_break()
-        print("Invalid format, please enter '1'.")
+    while True:
+        print("Press '1' to go back to the past trades menu.\n")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            handle_input_past_trades()
+        else:
+            line_break()
+            print("Invalid format, please enter '1'.")
 
 
 def main():
