@@ -1,4 +1,5 @@
 from datetime import datetime
+import re
 
 today = datetime.today()
 datetoday = today.strftime("%d.%m.%Y")
@@ -36,7 +37,6 @@ def input_date_today():
     print(f"The current date '{datetoday}' has been parsed to your journal.")
 
     trading_journal_entry.append(datetoday)
-    print(trading_journal_entry)
     
 
 def input_date_manually():
@@ -53,7 +53,24 @@ def input_date_manually():
         print("Invalid date format, please use DD.MM.YYYY format.")
     
     trading_journal_entry.append(date_str)
+
+
+def input_ticker():
+    
+
+    while True:
+        ticker = input("Enter ticker: ")
+
+        if re.match(r"^[a-zA-Z]{1,4}$", ticker):
+            break
+        else:
+            print("Invalid input, please enter 1 to 4 letters.")
+
+    trading_journal_entry.append(ticker)
     print(trading_journal_entry)
+
+
+
 
 
 def main():
@@ -61,6 +78,7 @@ def main():
     Run all program functions
     """
     handle_input_date()
+    input_ticker()
 
 
 print("Please input your stock trading data by following the instructions given to you.\n")
