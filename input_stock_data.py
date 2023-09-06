@@ -56,8 +56,6 @@ def input_date_manually():
 
 
 def input_ticker():
-    
-
     while True:
         ticker = input("Enter ticker: ")
 
@@ -67,11 +65,19 @@ def input_ticker():
             print("Invalid input, please enter 1 to 4 letters.")
 
     trading_journal_entry.append(ticker)
+
+
+def input_shares_amount():
+    while True:
+        shares_amount = input("Shares amount traded: ")
+
+        if re.match(r"^([\s\d]+)$", shares_amount):
+            break
+        else:
+            print("Invalid input, please enter a number.")
+
+    trading_journal_entry.append(shares_amount)
     print(trading_journal_entry)
-
-
-
-
 
 def main():
     """
@@ -79,6 +85,7 @@ def main():
     """
     handle_input_date()
     input_ticker()
+    input_shares_amount()
 
 
 print("Please input your stock trading data by following the instructions given to you.\n")
