@@ -25,11 +25,43 @@ data = stock_data.get_all_values()
 def line_break():
     print("__________________________________________________\n")
 
+def handle_input_past_trades():
+    """
+    Gives an option to either view a certain number of trade,
+    todays trades, or all past trades.
+    """
+    line_break()
+    print("Trading journal\n\n")
+    print("If you want to display your past trades, please follow the instructions given to you.\n")
+    print("Press '1' on your keyboard to enter a number.")
+    print("Or:")
+    print("Press '2', if you want see todays trades.")
+    print("Or:")
+    print("Press '3', if you want see all your past trades.")
+
+
+    
+    while True:
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            num_of_trades()
+        elif choice == "2":
+            todays_trades()
+        elif choice == "3":
+            all_trades()
+        else:
+            line_break()
+            print("Invalid format, please enter '1' or '2' or '3'.")
+
+
+
+
 
 def main():
     """
     Run all program functions
     """
+    handle_input_past_trades()
 
 
 main()
