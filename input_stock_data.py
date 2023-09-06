@@ -96,7 +96,7 @@ def input_ticker():
         else:
             print("Invalid input, please enter 1 to 4 letters.")
 
-    trading_journal_entry.append(ticker)
+    trading_journal_entry.append(ticker.upper())
 
 
 def input_shares_amount():
@@ -204,7 +204,8 @@ def push_input_to_sheet():
             time.sleep(1)
             main()
             break
-        elif re.match(r"^[nN]$", direction):
+        elif re.match(r"^[nN]$", push_data):
+            trading_journal_entry.clear()
             main()
             break
         else:
