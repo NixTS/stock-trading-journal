@@ -1,10 +1,35 @@
 from datetime import datetime
+from tabulate import tabulate
+
 import re
+import time
+
+import gspread
+from google.oauth2.service_account import Credentials
+
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('trading-journal')
+
+stock_data = SHEET.worksheet('stock_data')
+
+data = stock_data.get_all_values()
+
 
 today = datetime.today()
 datetoday = today.strftime("%d.%m.%Y")
 
 trading_journal_entry = []
+
+
 
 def handle_input_date():
     """
@@ -120,9 +145,42 @@ def input_prices():
             print("Invalid input, please enter a number.")
 
     trading_journal_entry.extend(prices)
-    print(trading_journal_entry)
+
+
+def show_input():
+    print("This is the data you put in:")
+
+    table = [["Date:", trading_journal_entry[0]],["Ticker:", trading_journal_entry[1]],["Amount of Shares:", trading_journal_entry[2]],["Direction:", trading_journal_entry[3]],["Entry Price:", "$ " + trading_journal_entry[4]],["Exit Price:", "$ " + trading_journal_entry[5]]]
+    print(tabulate(table))
+
+    push_input_to_sheet()
+
+
+def push_input_to_sheet():
+    while True:
+        push_data = input("If this is correct, type 'Y', if you want to restart type 'N'.")
+
+        if re.match(r"^[yY]$", push_data):
+            print("Pushing to journal . . .\n")
+            stock_data = SHEET.worksheet('stock_data')
+            stock_data.append_row(trading_journal_entry)
+            time.sleep(1)
+            print("Push successful! Your entry is now stored in your trading journal!\n")
+            time.sleep(1)
+            print("Restarting process . . .\n")
+            time.sleep(1)
+            main()
+            break
+        elif re.match(r"^[nN]$", direction):
+            handle_input_date()        
+            break
+        else:
+            print("Invalid input, please enter 'Y' to push entry, or 'N' to start over.")
 
     
+
+
+
 def main():
     """
     Run all program functions
@@ -132,6 +190,7 @@ def main():
     input_shares_amount()
     input_direction()
     input_prices()
+    show_input()
 
 
 print("Please input your stock trading data by following the instructions given to you.\n")

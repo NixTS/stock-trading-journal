@@ -13,17 +13,14 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-def access_google_sheet():
-    CREDS = Credentials.from_service_account_file('creds.json')
-    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-    SHEET = GSPREAD_CLIENT.open('trading-journal')
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('trading-journal')
 
-    stock_data = SHEET.worksheet('stock_data')
+stock_data = SHEET.worksheet('stock_data')
 
-    data = stock_data.get_all_values()
-
-    return data
+data = stock_data.get_all_values()
 
 
 def start():
