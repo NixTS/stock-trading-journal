@@ -21,18 +21,20 @@ def handle_input_date():
     the current date should be used or
     if one wants to input a date manually.
     """
+
     trading_journal_entry.clear()
+
     line_break()
-    print("Please input your stock trading data by following the instructions given to you.\n")
-    print(f"Today is the {datetoday}. Do you want to enter this date?\n")
-    print("press '1' on your keyboard to use the current date.")
-    print("Or:")
-    print("press '2', if you want to enter a date manually.\n")
+    print("Here you can input a new entry to your trading journal.\n")
+    print("Please press one of the following buttons on your keyboard to continue:\n")
+    print(f"'1' if you want to use the current date: {datetoday}.")
+    print("'2' if you want to enter a date manually.\n")
+    print("'ESC' if you want to return to the main menu.")
 
     while True:
         event = keyboard.read_event()
         if event.event_type == keyboard.KEY_DOWN:
-            choice = event.name  # Read the choice without blocking input
+            choice = event.name
             if choice == "1":
                 input_date_today()
                 break
