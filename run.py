@@ -3,10 +3,11 @@ from show_past_trades import handle_input_past_trades
 from get_statistics import handle_input_statistics
 from functions import line_break
 from sheet_data import *
-from pynput.keyboard import Listener
-from pynput import keyboard
 
-allowed_keys = {'1', '2', '3', keyboard.Key.esc}
+import sys
+import keyboard
+
+allowed_keys = {'1', '2', '3', 'esc'}
 
 from colorama import just_fix_windows_console
 just_fix_windows_console()
@@ -24,7 +25,7 @@ def main():
     print("'3' to display your trading statistics.\n")
     print("'ESC' to exit the program.")
 
-def on_key_press(key):
+def handle_input():
     """
     Handles key presses to navigate menu
     1: Input stock trading data to journal
@@ -32,25 +33,22 @@ def on_key_press(key):
     3: Display trading statistics 
     ESC: to exit the program; using quit()
     """
-    try:
-        if key.char in allowed_keys:
-            if key.char == '1':
-                handle_input_date()
-            elif key.char == '2':
-                handle_input_past_trades()
-            elif key.char == '3':
-                handle_input_statistics()
-    except AttributeError:
-        # Handle 'Esc' key
-        if key == keyboard.Key.esc:
+    while True:
+        choice = keyboard.read_event().name
+
+        if choice == 'esc':
             print("\nExiting the program.")
             line_break()
-            quit()
+            sys.exit(0)
 
-main()
-
-with Listener(on_press = on_key_press) as listener:
-    listener.join()
+        if choice in allowed_keys:
+            if choice == '1':
+                handle_input_date()
+            elif choice == '2':
+                handle_input_past_trades()
+            elif choice == '3':
+                handle_input_statistics()
 
 if __name__ == "__main__":
     main()
+    handle_input()
