@@ -172,11 +172,36 @@ def show_input():
     After successful input of all entries and overview
     in form of a table will be displayed.
     """
+    total_profit_loss = 0
+
+    entry_price = float(trading_journal_entry[4])
+    exit_price = float(trading_journal_entry[5])
+    num_of_shares = float(trading_journal_entry[2])
+
+    if trading_journal_entry[3] == "Short":
+        short_calc_result = (entry_price - exit_price) * num_of_shares
+        total_profit_loss += float(short_calc_result)
+    else:
+        long_calc_result = (exit_price - entry_price) * num_of_shares
+        total_profit_loss += float(long_calc_result)
+
+    this_trade_winner_loser = "Winner" if total_profit_loss >= 0 else "Loser"
+    this_trade_profit_loss = "Profit" if total_profit_loss >= 0 else "Loss"
+    
     line_break()
     print("This is the data you put in:\n")
 
-    table = [["Date:", trading_journal_entry[0]],["Ticker:", trading_journal_entry[1]],["Amount of Shares:", trading_journal_entry[2]],["Direction:", trading_journal_entry[3]],["Entry Price:", "$ " + trading_journal_entry[4]],["Exit Price:", "$ " + trading_journal_entry[5]]]
-    print(tabulate(table))
+    table = [
+        ["Date:", trading_journal_entry[0]],
+        ["Ticker:", trading_journal_entry[1]],
+        ["Amount of Shares:", trading_journal_entry[2]],
+        ["Direction:", trading_journal_entry[3]],
+        ["Entry Price:", "$ " + trading_journal_entry[4]],
+        ["Exit Price:", "$ " + trading_journal_entry[5]]
+    ]
+    print(tabulate(table), "\n")
+    print(f"Your trade is a {this_trade_winner_loser}")
+    print(f"The total {this_trade_profit_loss} is $ {total_profit_loss:.2f}")
 
     push_input_to_sheet()
 
