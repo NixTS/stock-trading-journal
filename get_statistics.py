@@ -54,7 +54,36 @@ def handle_input_statistics():
 
 
 def past_num_trades_statistic():
-    print("he")
+    """
+    Enter a number to get data from past trades.
+    If the number is higher than all past trades,
+    an error message will appear with the number of all past trades
+    """
+    line_break()
+    num_of_past_trades = input("Enter the number of last trades to get data from: \n")
+    total_rows_with_data = sum(1 for i, row in enumerate(data) if any(row) and i != 0)
+
+    try:
+        num_of_past_trades = int(num_of_past_trades)
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        return
+
+    if num_of_past_trades <= 0:
+        print("Invalid input. Please enter a positive number.")
+        return
+
+    if num_of_past_trades > total_rows_with_data:
+        line_break()
+        print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.")
+        return
+
+    line_break()
+    last_n_rows = [row for row in reversed(data[1:]) if any(row)][:num_of_past_trades]
+
+    total_profit_loss = calculate_total_profit_loss(last_n_rows)
+
+    print(f"Total profit or loss from the past {num_of_past_trades} trades: ${total_profit_loss:.2f}")
 
 def todays_num_trades_statistic():
     print("today_num_trades_statistic() works")
@@ -64,33 +93,26 @@ def all_num_trades_statistic():
     print("all_num_trades_statistic() works")
 
 
-def calculate_stock_data():
+def calculate_total_profit_loss(last_n_rows):
     #print(f"Your {time_indicator} trades show a win ratio of {win-ratio}")
     #print(f"with a {profit/loss} of {dollar}.")
     #print("Table with statistics")
 
-    if len(data) >= 2:
-        last_row = data[-1]
+    total_profit_loss = 0
 
-        entry_price = float(last_row[4])
-        exit_price = float(last_row[5])
-        num_of_shares = float(last_row[2])
+    for row in last_n_rows:
+        entry_price = float(row[4])
+        exit_price = float(row[5])
+        num_of_shares = float(row[2])
 
-        profit_loss = []
-
-        if last_row[3] == "Short":
+        if row[3] == "Short":
             short_calc_result = (entry_price - exit_price) * num_of_shares
-            profit_loss.append(short_calc_result)
+            total_profit_loss += short_calc_result
         else:
             long_calc_result = (exit_price - entry_price) * num_of_shares
-            profit_loss.append(long_calc_result)
+            total_profit_loss += long_calc_result
 
-        total_profit_loss = sum(profit_loss)
-
-
-    print(f"Your past trade made $ {total_profit_loss:.2f}")
-    print(entry_price)
-    print(exit_price)
+    return total_profit_loss
 
 
 
@@ -99,6 +121,6 @@ def main():
     Run all program functions
     """
     # handle_input_statistics()
-    calculate_stock_data()
+    past_num_trades_statistic()
 
 main()
