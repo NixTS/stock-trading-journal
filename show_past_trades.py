@@ -145,5 +145,5 @@ def main():
     """
     handle_input_past_trades()
 
-
-main()
+if __name__ == "__main__":
+    main()

@@ -1,3 +1,6 @@
+from input_stock_data import handle_input_date
+from show_past_trades import handle_input_past_trades
+from get_statistics import handle_input_statistics
 from functions import line_break
 from sheet_data import *
 from pynput.keyboard import Listener
@@ -5,15 +8,13 @@ from pynput import keyboard
 
 allowed_keys = {'1', '2', '3', keyboard.Key.esc}
 
-import subprocess
-
 from colorama import just_fix_windows_console
 just_fix_windows_console()
 
-def start():
+def main():
     """
     Starting point
-    Prints a message to the UI to select options:
+    Prints a message to the UI to select options.
     """
     line_break()
     print("Welcome to your Stock Trading Journal!\n")
@@ -25,20 +26,20 @@ def start():
 
 def on_key_press(key):
     """
-    Handles key presses to 
+    Handles key presses to navigate menu
     1: Input stock trading data to journal
     2: Display trading journal
     3: Display trading statistics 
-    ESC: to exit the program
+    ESC: to exit the program; using quit()
     """
     try:
         if key.char in allowed_keys:
             if key.char == '1':
-                subprocess.run(["python", "input_stock_data.py"])
+                handle_input_date()
             elif key.char == '2':
-                subprocess.run(["python", "show_past_trades.py"])
+                handle_input_past_trades()
             elif key.char == '3':
-                subprocess.run(["python", "get_statistics.py"])
+                handle_input_statistics()
     except AttributeError:
         # Handle 'Esc' key
         if key == keyboard.Key.esc:
@@ -46,7 +47,10 @@ def on_key_press(key):
             line_break()
             quit()
 
-start()
+main()
 
-with Listener(on_press=on_key_press) as listener:
+with Listener(on_press = on_key_press) as listener:
     listener.join()
+
+if __name__ == "__main__":
+    main()

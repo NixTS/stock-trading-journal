@@ -141,7 +141,7 @@ def main():
     """
     Run all program functions
     """
-    # handle_input_statistics()
     handle_input_statistics()
 
-main()
+if __name__ == "__main__":
+    main()

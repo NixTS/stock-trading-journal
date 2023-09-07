@@ -243,11 +243,6 @@ def main():
     Run all program functions
     """
     handle_input_date()
-    input_ticker()
-    input_shares_amount()
-    input_direction()
-    input_prices()
-    show_input()
 
-
-main()
+if __name__ == "__main__":
+    main()
