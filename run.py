@@ -1,5 +1,9 @@
 from functions import line_break
 from sheet_data import *
+from pynput.keyboard import Listener
+from pynput import keyboard
+
+allowed_keys = {'1', '2', '3', keyboard.Key.esc}
 
 import subprocess
 
@@ -17,22 +21,27 @@ def start():
 
     print("Welcome to your Stock Trading Journal")
     print("Please press one of the following buttons on your keyboard to continue:\n")
-    print("'1' to input you stock trading data.")
+    print("'1' to input your stock trading data.")
     print("'2' to see your past journal entries.")
     print("'3' to see your past trading statistics.\n")
 
-    user_input_menu = input("Please enter your option here: ")
-
-    if user_input_menu == "1":
-        try:
-            subprocess.run(["python", "input_stock_data.py"])
-        except FileNotFoundError:
-            print("File not found.")
-    elif user_input_menu == "2":
-        subprocess.run(["python", "show_past_trades.py"])
-    elif user_input_menu == "3":
-        subprocess.run(["python", "get_statistics.py"])
-    else:
-         print("Invalid input. Please enter 1, 2, or 3.")
+def on_key_press(key):
+    try:
+        if key.char in allowed_keys:
+            if key.char == '1':
+                subprocess.run(["python", "input_stock_data.py"])
+            elif key.char == '2':
+                subprocess.run(["python", "show_past_trades.py"])
+            elif key.char == '3':
+                subprocess.run(["python", "get_statistics.py"])
+    except AttributeError:
+        # Handle 'Esc' key
+        if key == keyboard.Key.esc:
+            print("\nExiting the program.")
+            quit()
 
 start()
+
+with Listener(on_press=on_key_press) as listener:
+    print("Press 1, 2, or 3 to select an option (Esc to exit).")
+    listener.join()
