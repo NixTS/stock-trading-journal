@@ -64,14 +64,41 @@ def all_num_trades_statistic():
     print("all_num_trades_statistic() works")
 
 
+def calculate_stock_data():
+    #print(f"Your {time_indicator} trades show a win ratio of {win-ratio}")
+    #print(f"with a {profit/loss} of {dollar}.")
+    #print("Table with statistics")
+
+    if len(data) >= 2:
+        last_row = data[-1]
+
+        entry_price = float(last_row[4])
+        exit_price = float(last_row[5])
+        num_of_shares = float(last_row[2])
+
+        profit_loss = []
+
+        if last_row[3] == "Short":
+            short_calc_result = (entry_price - exit_price) * num_of_shares
+            profit_loss.append(short_calc_result)
+        else:
+            long_calc_result = (exit_price - entry_price) * num_of_shares
+            profit_loss.append(long_calc_result)
+
+        total_profit_loss = sum(profit_loss)
+
+
+    print(f"Your past trade made $ {total_profit_loss:.2f}")
+    print(entry_price)
+    print(exit_price)
+
 
 
 def main():
     """
     Run all program functions
     """
-    past_num_trades_statistic()
-    todays_num_trades_statistic()
-    all_num_trades_statistic()
+    # handle_input_statistics()
+    calculate_stock_data()
 
 main()
