@@ -85,8 +85,33 @@ def past_num_trades_statistic():
 
     print(f"Total profit or loss from the past {num_of_past_trades} trades: ${total_profit_loss:.2f}")
 
+
 def todays_num_trades_statistic():
-    print("today_num_trades_statistic() works")
+    """
+    Get all past trades statistic with today's date.
+    """
+    today_date_str = datetime.now().strftime('%d.%m.%Y')
+
+    filtered_rows = [row for row in data if any(row) and row[0] == today_date_str]
+
+    if not filtered_rows:
+        print("No trades with today's date found.")
+        return
+
+    total_profit_loss = calculate_total_profit_loss(filtered_rows)
+    
+    line_break()
+    print("Here you can see your statistics from today's trades:\n")
+    print(f"Requested today's trades profit or loss amount to ${total_profit_loss:.2f}")
+
+    while True:
+        print("Press '1' to go back to the trades statistic menu.\n")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            handle_input_past_trades()
+        else:
+            line_break()
+            print("Invalid format, please enter '1'.")
 
 
 def all_num_trades_statistic():
@@ -121,6 +146,6 @@ def main():
     Run all program functions
     """
     # handle_input_statistics()
-    past_num_trades_statistic()
+    todays_num_trades_statistic()
 
 main()
