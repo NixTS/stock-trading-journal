@@ -4,6 +4,3 @@ def line_break():
     For visual pleasure.
     """
     print("__________________________________________________\n")
-
-import sys
-print(sys.path)

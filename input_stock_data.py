@@ -1,37 +1,17 @@
+from functions import line_break
+from sheet_data import *
+
 from datetime import datetime
 from tabulate import tabulate
 
 import re
 import time
 
-import gspread
-from google.oauth2.service_account import Credentials
-
-
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
-
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('trading-journal')
-
-stock_data = SHEET.worksheet('stock_data')
-
-data = stock_data.get_all_values()
-
 
 today = datetime.today()
 datetoday = today.strftime("%d.%m.%Y")
 
 trading_journal_entry = []
-
-def line_break():
-    print("__________________________________________________\n")
-
 
 def handle_input_date():
     """
@@ -82,13 +62,12 @@ def input_date_manually():
     try:
         date_obj = datetime.strptime(date_str, "%d.%m.%Y")
         print(f"Your input '{datetoday}' has been parsed to your journal.")
+        trading_journal_entry.append(date_str)
     except ValueError:
         line_break()
         print(ValueError)
         print("Invalid date or format, please use DD.MM.YYYY format.")
         input_date_manually()
-    
-    trading_journal_entry.append(date_str)
 
 
 def input_ticker():
@@ -103,12 +82,11 @@ def input_ticker():
         ticker = input("Enter ticker: ")
 
         if re.match(r"^[a-zA-Z]{1,4}$", ticker):
+            trading_journal_entry.append(ticker.upper())
             break
         else:
             line_break()
             print("Invalid input, please enter 1 to 4 letters.")
-
-    trading_journal_entry.append(ticker.upper())
 
 
 def input_shares_amount():
@@ -122,12 +100,11 @@ def input_shares_amount():
         shares_amount = input("Shares amount traded: ")
 
         if re.match(r"^([\s\d]+)$", shares_amount):
+            trading_journal_entry.append(shares_amount)
             break
         else:
             line_break()
             print("Invalid input, please enter a number.")
-
-    trading_journal_entry.append(shares_amount)
 
 
 def input_direction():
