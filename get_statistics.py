@@ -47,7 +47,7 @@ def handle_input_statistics():
         elif choice == "2":
             todays_num_trades_statistic()
         elif choice == "3":
-            all_num_trades_statistic()
+            all_trades_statistic()
         else:
             line_break()
             print("Invalid format, please enter '1' or '2' or '3'.")
@@ -66,11 +66,13 @@ def past_num_trades_statistic():
     try:
         num_of_past_trades = int(num_of_past_trades)
     except ValueError:
+        line_break()
         print("Invalid input. Please enter a number.")
         return
 
     if num_of_past_trades <= 0:
         print("Invalid input. Please enter a positive number.")
+        line_break()
         return
 
     if num_of_past_trades > total_rows_with_data:
@@ -105,24 +107,37 @@ def todays_num_trades_statistic():
     print(f"Requested today's trades profit or loss amount to ${total_profit_loss:.2f}")
 
     while True:
+        line_break()
         print("Press '1' to go back to the trades statistic menu.\n")
         choice = input("Enter your choice: ")
         if choice == "1":
-            handle_input_past_trades()
+            handle_input_statistics()
         else:
             line_break()
             print("Invalid format, please enter '1'.")
 
 
-def all_num_trades_statistic():
-    print("all_num_trades_statistic() works")
+def all_trades_statistic():
+    last_n_rows = [row for row in reversed(data[1:]) if any(row)]
+    
+    line_break()
+    print("Here you can see your statistics from all trades:\n")
+
+    total_profit_loss = calculate_total_profit_loss(last_n_rows)
+    print(f"Requested all trades profit or loss amount to ${total_profit_loss:.2f}")
+
+    while True:
+        line_break()
+        print("Press '1' to go back to the trades statistic menu.\n")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            handle_input_statistics()
+        else:
+            line_break()
+            print("Invalid format, please enter '1'.")
 
 
 def calculate_total_profit_loss(last_n_rows):
-    #print(f"Your {time_indicator} trades show a win ratio of {win-ratio}")
-    #print(f"with a {profit/loss} of {dollar}.")
-    #print("Table with statistics")
-
     total_profit_loss = 0
 
     for row in last_n_rows:
@@ -146,6 +161,6 @@ def main():
     Run all program functions
     """
     # handle_input_statistics()
-    todays_num_trades_statistic()
+    handle_input_statistics()
 
 main()
