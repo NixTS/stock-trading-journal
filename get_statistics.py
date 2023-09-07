@@ -26,12 +26,39 @@ data = stock_data.get_all_values()
 def line_break():
     print("__________________________________________________\n")
 
+def handle_input_statistics():
+    """
+    Gives an option to either get statistics for a number of trades,
+    or todays trades or all trades.
+    """
+    line_break()
+    print("Trading statistics\n\n")
+    print("If you want to get statistics for your trades, please follow the instructions given to you.\n")
+    print("Press '1' on your keyboard to enter a number.")
+    print("Or:")
+    print("Press '2', if you want to get todays trades.")
+    print("Or:")
+    print("Press '3', if you want to get all your past trades.\n")
+
+    while True:
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            past_num_trades_statistic()
+        elif choice == "2":
+            todays_num_trades_statistic()
+        elif choice == "3":
+            all_num_trades_statistic()
+        else:
+            line_break()
+            print("Invalid format, please enter '1' or '2' or '3'.")
+
 
 def past_num_trades_statistic():
-    print("past_num_trades_statistic() works")
+    print("he")
 
 def todays_num_trades_statistic():
     print("today_num_trades_statistic() works")
+
 
 def all_num_trades_statistic():
     print("all_num_trades_statistic() works")
