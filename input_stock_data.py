@@ -19,6 +19,7 @@ def handle_input_date():
     the current date should be used or
     if one wants to input a date manually.
     """
+    trading_journal_entry.clear()
     line_break()
     print("Please input your stock trading data by following the instructions given to you.\n")
     print(f"Today is the {datetoday}. Do you want to enter this date?\n")
