@@ -6,7 +6,9 @@ from tabulate import tabulate
 
 import re
 import time
+import keyboard
 
+allowed_keys = {'1', '2', 'esc'}
 
 today = datetime.today()
 datetoday = today.strftime("%d.%m.%Y")
@@ -27,18 +29,16 @@ def handle_input_date():
     print("Or:")
     print("press '2', if you want to enter a date manually.\n")
 
-    
     while True:
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            input_date_today()
-            break
-        elif choice == "2":
-            input_date_manually()
-            break
-        else:
-            line_break()
-            print("Invalid format, please enter '1' or '2'.")
+        event = keyboard.read_event()
+        if event.event_type == keyboard.KEY_DOWN:
+            choice = event.name  # Read the choice without blocking input
+            if choice == "1":
+                input_date_today()
+                break
+            elif choice == "2":
+                input_date_manually()
+                break
 
 
 def input_date_today():
