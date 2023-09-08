@@ -117,7 +117,7 @@ def input_shares_amount():
         if re.match(r"^([\s\d]+)$", shares_amount):
             trading_journal_entry.append(shares_amount)
             line_break()
-            print(f"Your entry of {shares_amount} shares will be parsed to your journal.")
+            print(f"Your input of {shares_amount} shares will be parsed to your journal.")
             input_direction()
             break
         else:
@@ -135,8 +135,10 @@ def input_direction():
 
     while True:
         line_break()
-        print("For a long trade please enter 'L'.\n")
-        print("For a short short please enter 'S'.\n\n")
+        print("Here you enter the direction of your trade.\n")
+        print("For a long direction please enter 'l' or 'L'.")
+        print("For a short direction please enter 's' or 'S'.\n\n")
+        print("Input restricted to 's', 'S', 'l', 'L'.\n")
         direction = input("Enter trade direction: ")
 
         if re.match(r"^[lL]$", direction):
