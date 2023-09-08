@@ -86,10 +86,15 @@ def input_ticker():
     """
     while True:
         line_break()
+        print("Here you enter the stock ticker symbol.\n")
+        print("Input restricted to 1 - 4 letters.")
+        print("Input will be converted to uppercase automatically.\n")
         ticker = input("Enter ticker: ")
 
         if re.match(r"^[a-zA-Z]{1,4}$", ticker):
             trading_journal_entry.append(ticker.upper())
+            line_break()
+            print(f"\nYour input ticker symbol '{ticker.upper()}' will be parsed to your journal.")
             break
         else:
             line_break()
