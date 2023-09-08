@@ -94,7 +94,7 @@ def input_ticker():
         if re.match(r"^[a-zA-Z]{1,4}$", ticker):
             trading_journal_entry.append(ticker.upper())
             line_break()
-            print(f"\nYour input ticker symbol '{ticker.upper()}' will be parsed to your journal.")
+            print(f"Your input ticker symbol {ticker.upper()} will be parsed to your journal.")
             input_shares_amount()
             break
         else:
@@ -110,10 +110,15 @@ def input_shares_amount():
     """
     while True:
         line_break()
+        print("Here you enter the amout of shares traded.\n")
+        print("Input restricted to numbers.\n")
         shares_amount = input("Shares amount traded: ")
 
         if re.match(r"^([\s\d]+)$", shares_amount):
             trading_journal_entry.append(shares_amount)
+            line_break()
+            print(f"Your entry of {shares_amount} shares will be parsed to your journal.")
+            input_direction()
             break
         else:
             line_break()
