@@ -8,7 +8,7 @@ import re
 import time
 import keyboard
 
-allowed_keys = {'1', '2', 'esc'}
+allowed_keys = {'1', '2', 'y', 'n', 'esc'}
 
 today = datetime.today()
 datetoday = today.strftime("%d.%m.%Y")
@@ -235,7 +235,7 @@ def show_input():
     ]
     print(tabulate(table), "\n")
     print(f"Your trade is a {this_trade_winner_loser}")
-    print(f"The total {this_trade_profit_loss} is $ {total_profit_loss:.2f}")
+    print(f"The total {this_trade_profit_loss} is $ {total_profit_loss:.2f}\n")
 
     push_input_to_sheet()
 
@@ -246,32 +246,29 @@ def push_input_to_sheet():
     If data in table is correct, data will be pushed to sheet, process repeats.
     If not, process repeats.
     """
+    print("If this is correct, type 'Y', if you want to restart type 'N'.")        
     while True:
-        print("\n")
-        push_data = input("If this is correct, type 'Y', if you want to restart type 'N'.")
+        event = keyboard.read_event(suppress=True)
+        if event.event_type == keyboard.KEY_UP:
+            if event.name.lower() == 'y':
+                line_break()
+                print("Pushing to journal . . .\n")
+                stock_data = SHEET.worksheet('stock_data')
+                stock_data.append_row(trading_journal_entry)
+                time.sleep(2)
+                print("Push successful! Your entry is now stored in your trading journal!\n")
+                time.sleep(2)
+                print("Restarting process . . .\n")
+                print("This takes only 5 seconds . . .")
+                time.sleep(5)
+                main()
+                break
+            elif event.name.lower() == 'n':
+                trading_journal_entry.clear()
+                main()
+                break
 
-        if re.match(r"^[yY]$", push_data):
-            line_break()
-            print("Pushing to journal . . .\n")
-            stock_data = SHEET.worksheet('stock_data')
-            stock_data.append_row(trading_journal_entry)
-            time.sleep(2)
-            print("Push successful! Your entry is now stored in your trading journal!\n")
-            time.sleep(2)
-            print("Restarting process . . .\n")
-            print("This takes only 5 seconds . . .")
-            time.sleep(5)
-            main()
-            break
-        elif re.match(r"^[nN]$", push_data):
-            trading_journal_entry.clear()
-            main()
-            break
-        else:
-            line_break()
-            print("Invalid input, please enter 'Y' to push entry, or 'N' to start over.")
 
-    
 def main():
     """
     Run all program functions
