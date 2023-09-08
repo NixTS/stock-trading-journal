@@ -95,6 +95,7 @@ def input_ticker():
             trading_journal_entry.append(ticker.upper())
             line_break()
             print(f"\nYour input ticker symbol '{ticker.upper()}' will be parsed to your journal.")
+            input_shares_amount()
             break
         else:
             line_break()
