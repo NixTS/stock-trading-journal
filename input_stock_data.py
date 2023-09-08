@@ -69,6 +69,7 @@ def input_date_manually():
         line_break()
         print(f"Your input '{datetoday}' has been parsed to your journal.")
         trading_journal_entry.append(date_str)
+        input_ticker()
     except ValueError:
         line_break()
         print(ValueError)
