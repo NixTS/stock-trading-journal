@@ -176,19 +176,21 @@ def input_prices():
         print("Here you enter the entry and exit prices of your trade.\n")
         print("Enter the entry price first.\n")
         print("Input is restricted to numbers only.\n")
+        print("For Example: 6.45, 12.00, 293.20")
         entry_price = input("Enter trade entry price: ")
 
-        if re.match(r"^([\s\d]+)$", entry_price):
+        if re.match(r"^\d+\.\d{2}$", entry_price):
             prices.append(entry_price)
             break
         else:
             line_break()
-            print("Invalid input, please enter a number.")
+            print("Invalid input, please enter a number with exactly two decimal places.")
+            print("for example: 6.45, 12.00, 293.20")
 
     while True:
         exit_price = input("Enter trade exit price: ")
 
-        if re.match(r"^([\s\d]+)$", exit_price):
+        if re.match(r"^\d+\.\d{2}$", exit_price):
             prices.append(exit_price)
             break
         else:
