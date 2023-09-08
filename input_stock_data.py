@@ -198,6 +198,7 @@ def input_prices():
     line_break()
     print(f"Your input of entry price $ {entry_price} and exit price $ {exit_price} will be parsed to your journal.")
     trading_journal_entry.extend(prices)
+    show_input()
 
 
 def show_input():
