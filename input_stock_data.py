@@ -173,8 +173,10 @@ def input_prices():
 
     while True:
         line_break()
-        print("Enter your entry and exit prices.\n")
-        entry_price = input("Enter your trade entry price: ")
+        print("Here you enter the entry and exit prices of your trade.\n")
+        print("Enter the entry price first.\n")
+        print("Input is restricted to numbers only.\n")
+        entry_price = input("Enter trade entry price: ")
 
         if re.match(r"^([\s\d]+)$", entry_price):
             prices.append(entry_price)
@@ -184,14 +186,17 @@ def input_prices():
             print("Invalid input, please enter a number.")
 
     while True:
-        exit_price = input("Enter your trade exit price: ")
+        exit_price = input("Enter trade exit price: ")
 
         if re.match(r"^([\s\d]+)$", exit_price):
             prices.append(exit_price)
             break
         else:
+            line_break()
             print("Invalid input, please enter a number.")
 
+    line_break()
+    print(f"Your input of entry price $ {entry_price} and exit price $ {exit_price} will be parsed to your journal.")
     trading_journal_entry.extend(prices)
 
 
