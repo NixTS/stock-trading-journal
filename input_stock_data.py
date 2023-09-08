@@ -32,8 +32,8 @@ def handle_input_date():
     print("'ESC' if you want to return to the main menu.")
 
     while True:
-        event = keyboard.read_event()
-        if event.event_type == keyboard.KEY_DOWN:
+        event = keyboard.read_event(suppress=True)
+        if event.event_type == keyboard.KEY_UP:
             choice = event.name
             if choice == "1":
                 input_date_today()
@@ -52,6 +52,7 @@ def input_date_today():
     print(f"The current date '{datetoday}' has been parsed to your journal.")
 
     trading_journal_entry.append(datetoday)
+    input_ticker()
     
 
 def input_date_manually():
