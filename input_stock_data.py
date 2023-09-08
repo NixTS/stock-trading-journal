@@ -140,12 +140,21 @@ def input_direction():
         print("For a short direction please enter 's' or 'S'.\n\n")
         print("Input restricted to 's', 'S', 'l', 'L'.\n")
         direction = input("Enter trade direction: ")
+        direction_output = " "
 
         if re.match(r"^[lL]$", direction):
             trading_journal_entry.append("Long")
+            direction_output = "Long"
+            line_break()
+            print(f"Your trade direction of {str(direction_output)} will be parsed to your journal.")
+            input_prices()
             break
         elif re.match(r"^[sS]$", direction):
-            trading_journal_entry.append("Short")        
+            trading_journal_entry.append("Short")
+            direction_output = "Short"
+            line_break()
+            print(f"Your trade direction of {str(direction_output)} will be parsed to your journal.")
+            input_prices()
             break
         else:
             line_break()
