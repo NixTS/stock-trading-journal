@@ -61,10 +61,12 @@ def input_date_manually():
     Prints a ValueError to the terminal if the wrong format is used, input repeats.
     """
     line_break()
-    date_str = input("Enter a date (DD.MM.YYYY): ")
+    print("Here you can enter a date manually 'DD.MM.YYYY'.\n" )
+    date_str = input("Enter a date: ")
 
     try:
         date_obj = datetime.strptime(date_str, "%d.%m.%Y")
+        line_break()
         print(f"Your input '{datetoday}' has been parsed to your journal.")
         trading_journal_entry.append(date_str)
     except ValueError:
