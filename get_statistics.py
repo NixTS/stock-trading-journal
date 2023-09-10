@@ -5,6 +5,9 @@ from datetime import datetime
 from tabulate import tabulate
 
 import time
+import keyboard
+
+allowed_keys = {'1', '2', '3', 'esc'}
 
 
 def handle_input_statistics():
@@ -22,16 +25,20 @@ def handle_input_statistics():
     print("Press '3', if you want to get all your past trades.\n")
 
     while True:
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            past_num_trades_statistic()
-        elif choice == "2":
-            todays_num_trades_statistic()
-        elif choice == "3":
-            all_trades_statistic()
-        else:
-            line_break()
-            print("Invalid format, please enter '1' or '2' or '3'.")
+            event = keyboard.read_event(suppress=True)
+            if event.event_type == keyboard.KEY_UP:
+                choice = event.name
+                if choice == "1":
+                    past_num_trades_statistic()
+                    break
+                elif choice == "2":
+                    todays_num_trades_statistic()
+                    break
+                elif choice == '3':
+                    all_trades_statistic()
+                else:
+                    line_break()
+                    print("Invalid format, please enter '1' or '2' or '3'.")
 
 
 def past_num_trades_statistic():
