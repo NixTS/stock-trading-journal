@@ -48,7 +48,8 @@ def past_num_trades_statistic():
     an error message will appear with the number of all past trades
     """
     line_break()
-    num_of_past_trades = input("Enter the number of last trades to get data from: \n")
+    print("Here you can get your past trades statistic.\n")
+    num_of_past_trades = input("Enter the number of past trades: ")
     total_rows_with_data = sum(1 for i, row in enumerate(data) if any(row) and i != 0)
 
     try:
@@ -56,16 +57,18 @@ def past_num_trades_statistic():
     except ValueError:
         line_break()
         print("Invalid input. Please enter a number.")
-        return
+        past_num_trades_statistic()
 
     if num_of_past_trades <= 0:
         print("Invalid input. Please enter a positive number.")
         line_break()
-        return
+        past_num_trades_statistic()
 
     if num_of_past_trades > total_rows_with_data:
         line_break()
-        print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.")
+        print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.\n")
+        print("Here are your all time trade statistics instead.")
+        all_trades_statistic()
         return
 
     line_break()
