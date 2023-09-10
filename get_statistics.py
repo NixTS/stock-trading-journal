@@ -76,7 +76,10 @@ def past_num_trades_statistic():
 
     total_profit_loss = calculate_total_profit_loss(last_n_rows)
 
-    print(f"Total profit or loss from the past {num_of_past_trades} trades: ${total_profit_loss:.2f}")
+    print(f"Total profit or loss from the past {num_of_past_trades} trades: ${total_profit_loss:.2f}\n")
+    print("Returning to main menu.")
+    time.sleep(2)
+    handle_input_statistics()
 
 
 def todays_num_trades_statistic():
@@ -93,22 +96,16 @@ def todays_num_trades_statistic():
         print("Returning to main menu.")
         time.sleep(2)
         handle_input_statistics()
+        
 
     total_profit_loss = calculate_total_profit_loss(filtered_rows)
     
     line_break()
     print("Here you can see your statistics from today's trades:\n")
-    print(f"Requested today's trades profit or loss amount to ${total_profit_loss:.2f}")
-
-    while True:
-        line_break()
-        print("Press '1' to go back to the trades statistic menu.\n")
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            handle_input_statistics()
-        else:
-            line_break()
-            print("Invalid format, please enter '1'.")
+    print(f"Requested today's trades profit or loss amount to ${total_profit_loss:.2f}\n")
+    print("Returning to main menu.")
+    time.sleep(2)
+    handle_input_statistics()
 
 
 def all_trades_statistic():
@@ -118,17 +115,11 @@ def all_trades_statistic():
     print("Here you can see your statistics from all trades:\n")
 
     total_profit_loss = calculate_total_profit_loss(last_n_rows)
-    print(f"Requested all trades profit or loss amount to ${total_profit_loss:.2f}")
+    print(f"Requested all trades profit or loss amount to ${total_profit_loss:.2f}\n")
 
-    while True:
-        line_break()
-        print("Press '1' to go back to the trades statistic menu.\n")
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            handle_input_statistics()
-        else:
-            line_break()
-            print("Invalid format, please enter '1'.")
+    print("Returning to main menu.")
+    time.sleep(2)
+    handle_input_statistics()
 
 
 def calculate_total_profit_loss(last_n_rows):
