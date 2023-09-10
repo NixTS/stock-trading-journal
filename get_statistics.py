@@ -88,8 +88,11 @@ def todays_num_trades_statistic():
     filtered_rows = [row for row in data if any(row) and row[0] == today_date_str]
 
     if not filtered_rows:
-        print("No trades with today's date found.")
-        return
+        line_break()
+        print("No trades with today's date found.\n")
+        print("Returning to main menu.")
+        time.sleep(2)
+        handle_input_statistics()
 
     total_profit_loss = calculate_total_profit_loss(filtered_rows)
     
