@@ -1,11 +1,8 @@
+import time
 from functions import line_break
 from sheet_data import *
-
 from datetime import datetime
 from tabulate import tabulate
-
-import re
-import time
 
 
 def handle_input_past_trades():

@@ -1,12 +1,11 @@
+import keyboard
+import re
+import time
 from functions import line_break
 from sheet_data import *
-
 from datetime import datetime
 from tabulate import tabulate
 
-import re
-import time
-import keyboard
 
 allowed_keys = {'1', '2', 'y', 'n', 'esc'}
 
@@ -14,6 +13,7 @@ today = datetime.today()
 datetoday = today.strftime("%d.%m.%Y")
 
 trading_journal_entry = []
+
 
 def handle_input_date():
     """

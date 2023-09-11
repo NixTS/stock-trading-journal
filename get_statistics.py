@@ -1,11 +1,10 @@
+import keyboard
+import time
 from functions import line_break
 from sheet_data import *
-
 from datetime import datetime
 from tabulate import tabulate
 
-import time
-import keyboard
 
 allowed_keys = {'1', '2', '3', 'esc'}
 

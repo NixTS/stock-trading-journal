@@ -1,16 +1,13 @@
+import keyboard
+import sys
+from colorama import Fore, Back, Style
 from input_stock_data import handle_input_date
 from show_past_trades import handle_input_past_trades
 from get_statistics import handle_input_statistics
 from functions import line_break
 from sheet_data import *
 
-import sys
-import keyboard
-
 allowed_keys = {'1', '2', '3', 'esc'}
-
-from colorama import just_fix_windows_console
-just_fix_windows_console()
 
 def main():
     """
