@@ -9,6 +9,7 @@ from sheet_data import *
 
 allowed_keys = {'1', '2', '3', 'esc'}
 
+
 def main():
     """
     Starting point
@@ -22,6 +23,7 @@ def main():
     print("'3' to display your trading statistics.\n")
     print("'ESC' to exit the program.")
 
+
 def handle_input():
     """
     Handles key presses to navigate menu
@@ -31,20 +33,23 @@ def handle_input():
     ESC: to exit the program; using quit()
     """
     while True:
-        choice = keyboard.read_event().name
+        event = keyboard.read_event(suppress=True)
+        if event.event_type == keyboard.KEY_UP:
+            choice = event.name
 
-        if choice == 'esc':
-            print("\nExiting the program.")
-            line_break()
-            sys.exit(0)
+            if choice == 'esc':
+                print("\nExiting the program.")
+                line_break()
+                sys.exit(0)
 
-        if choice in allowed_keys:
-            if choice == '1':
-                handle_input_date()
-            elif choice == '2':
-                handle_input_past_trades()
-            elif choice == '3':
-                handle_input_statistics()
+            if choice in allowed_keys:
+                if choice == '1':
+                    handle_input_date()
+                elif choice == '2':
+                    handle_input_past_trades()
+                elif choice == '3':
+                    handle_input_statistics()
+
 
 if __name__ == "__main__":
     main()
