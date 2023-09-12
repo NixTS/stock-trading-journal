@@ -1,7 +1,7 @@
 import keyboard
 import re
 import time
-from functions import line_break
+from functions import line_break, close_script
 from sheet_data import *
 from datetime import datetime
 from tabulate import tabulate
@@ -15,12 +15,9 @@ datetoday = today.strftime("%d.%m.%Y")
 trading_journal_entry = []
 
 
-def handle_input_date():
+def main():
     """
     Welcome message and shows the current date
-    Asks for input if
-    the current date should be used or
-    if one wants to input a date manually.
     """
     line_break()
     print("Trading journal input\n\n")
@@ -29,6 +26,15 @@ def handle_input_date():
     print(f"'1' if you want to use the current date: {datetoday}.")
     print("'2' if you want to enter a date manually.\n")
     print("'ESC' if you want to return to the main menu.")
+
+
+def handle_input_date():
+    """
+    Asks for input if
+    the current date should be used or
+    if one wants to input a date manually.
+    """
+    main()
     trading_journal_entry.clear()
 
     while True:
@@ -41,6 +47,8 @@ def handle_input_date():
             elif choice == "2":
                 input_date_manually()
                 break
+            elif choice == 'esc':
+                    close_script()
 
 
 def input_date_today():

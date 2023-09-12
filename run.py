@@ -1,10 +1,9 @@
 import keyboard
-import sys
 from colorama import Fore, Back, Style
 from input_stock_data import handle_input_date
 from show_past_trades import handle_input_past_trades
 from get_statistics import handle_input_statistics
-from functions import line_break
+from functions import line_break, close_script
 from sheet_data import *
 
 allowed_keys = {'1', '2', '3', 'esc'}
@@ -37,11 +36,6 @@ def handle_input():
         if event.event_type == keyboard.KEY_UP:
             choice = event.name
 
-            if choice == 'esc':
-                print("\nExiting the program.")
-                line_break()
-                sys.exit(0)
-
             if choice in allowed_keys:
                 if choice == '1':
                     handle_input_date()
@@ -49,6 +43,8 @@ def handle_input():
                     handle_input_past_trades()
                 elif choice == '3':
                     handle_input_statistics()
+                elif choice == 'esc':
+                    close_script()
 
 
 if __name__ == "__main__":

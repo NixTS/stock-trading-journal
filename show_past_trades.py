@@ -1,6 +1,6 @@
 import keyboard
 import time
-from functions import line_break
+from functions import line_break, close_script
 from sheet_data import *
 from datetime import datetime
 from tabulate import tabulate
@@ -41,6 +41,8 @@ def handle_input_past_trades():
                 break
             elif choice == "3":
                 all_trades()
+            elif choice == 'esc':
+                close_script()
 
 
 def num_of_trades():

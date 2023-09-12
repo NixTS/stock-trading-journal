@@ -1,6 +1,6 @@
 import keyboard
 import time
-from functions import line_break
+from functions import line_break, close_script
 from sheet_data import *
 from datetime import datetime
 from tabulate import tabulate
@@ -41,6 +41,8 @@ def handle_input_statistics():
                     break
                 elif choice == '3':
                     all_trades_statistic()
+                elif choice == 'esc':
+                    close_script()
                 else:
                     line_break()
                     print("Invalid format, please enter '1' or '2' or '3'.")
