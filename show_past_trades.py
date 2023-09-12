@@ -8,10 +8,10 @@ from tabulate import tabulate
 
 allowed_keys = {'1', '2', 'y', 'n', 'esc'}
 
-def handle_input_past_trades():
+
+def main():
     """
-    Gives an option to either view a certain number of trade,
-    todays trades, or all past trades.
+    Welcome message and navigation overview
     """
     line_break()
     print("Trading journal\n\n")
@@ -22,6 +22,12 @@ def handle_input_past_trades():
     print("Or:")
     print("Press '3', if you want see all your past trades.\n")
 
+
+def handle_input_past_trades():
+    """
+    Gives an option to either view a certain number of trade,
+    todays trades, or all past trades.
+    """
     while True:
         event = keyboard.read_event(suppress=True)
         if event.event_type == keyboard.KEY_UP:
@@ -125,11 +131,6 @@ def all_trades():
     main()
 
 
-def main():
-    """
-    Run all program functions
-    """
-    handle_input_past_trades()
-
 if __name__ == "__main__":
     main()
+    handle_input_past_trades()
