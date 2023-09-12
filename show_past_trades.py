@@ -43,6 +43,7 @@ def handle_input_past_trades():
                     break
                 elif choice == "3":
                     all_trades()
+                    break
                 elif choice == 'esc':
                     close_script()
 

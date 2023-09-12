@@ -51,6 +51,7 @@ def handle_input_date():
                     break
                 elif choice == 'esc':
                     close_script()
+                    break
 
 
 def input_date_today():
