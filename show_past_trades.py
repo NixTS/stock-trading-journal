@@ -28,6 +28,7 @@ def handle_input_past_trades():
     Gives an option to either view a certain number of trade,
     todays trades, or all past trades.
     """
+    main()
     while True:
         event = keyboard.read_event(suppress=True)
         if event.event_type == keyboard.KEY_UP:

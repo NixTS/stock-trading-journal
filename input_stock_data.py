@@ -15,9 +15,12 @@ datetoday = today.strftime("%d.%m.%Y")
 trading_journal_entry = []
 
 
-def main():
+def handle_input_date():
     """
     Welcome message and shows the current date
+    Asks for input if
+    the current date should be used or
+    if one wants to input a date manually.
     """
     line_break()
     print("Trading journal input\n\n")
@@ -26,14 +29,6 @@ def main():
     print(f"'1' if you want to use the current date: {datetoday}.")
     print("'2' if you want to enter a date manually.\n")
     print("'ESC' if you want to return to the main menu.")
-
-
-def handle_input_date():
-    """
-    Asks for input if
-    the current date should be used or
-    if one wants to input a date manually.
-    """
     trading_journal_entry.clear()
 
     while True:
