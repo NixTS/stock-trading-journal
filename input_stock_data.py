@@ -76,7 +76,7 @@ def input_date_manually():
     date_str = input("Enter a date: ")
 
     try:
-        parsed_date = datetime.strptime(date_str, "%d.%m.%Y").date()  # Convert to date object
+        parsed_date = datetime.strptime(date_str, "%d.%m.%Y").date()
         today = date.today()
         
         if parsed_date <= today:
@@ -149,33 +149,32 @@ def input_direction():
     Loop repeats if input was incorrect.
     The word Long/Short will be appended to the list.
     """
-
+    line_break()
+    print("Here you enter the direction of your trade.\n")
+    print("For a long direction please press 'L' or 'S'.")
+    direction_output = " "
+    
     while True:
-        line_break()
-        print("Here you enter the direction of your trade.\n")
-        print("For a long direction please enter 'l' or 'L'.")
-        print("For a short direction please enter 's' or 'S'.\n\n")
-        print("Input restricted to 's', 'S', 'l', 'L'.\n")
-        direction = input("Enter trade direction: ")
-        direction_output = " "
+        
+        event = keyboard.read_event(suppress = True)
+        if event.event_type == keyboard.KEY_UP:
+            choice = event.name
 
-        if re.match(r"^[lL]$", direction):
-            trading_journal_entry.append("Long")
-            direction_output = "Long"
-            line_break()
-            print(f"Your trade direction of {str(direction_output)} will be parsed to your journal.")
-            input_prices()
-            break
-        elif re.match(r"^[sS]$", direction):
-            trading_journal_entry.append("Short")
-            direction_output = "Short"
-            line_break()
-            print(f"Your trade direction of {str(direction_output)} will be parsed to your journal.")
-            input_prices()
-            break
-        else:
-            line_break()
-            print("Invalid input, please enter 'L' for Long, and 'S' for a short trade.")
+            if choice in allowed_keys:
+                if choice == "l":
+                    trading_journal_entry.append("Long")
+                    direction_output = "Long"
+                    line_break()
+                    print(f"Your trade direction of {str(direction_output)} will be parsed to your journal.")
+                    input_prices()
+                    break
+                elif choice == "s":
+                    trading_journal_entry.append("Short")
+                    direction_output = "Short"
+                    line_break()
+                    print(f"Your trade direction of {str(direction_output)} will be parsed to your journal.")
+                    input_prices()
+                    break
 
 
 def input_prices():
