@@ -1,9 +1,12 @@
+import keyboard
 import time
 from functions import line_break
 from sheet_data import *
 from datetime import datetime
 from tabulate import tabulate
 
+
+allowed_keys = {'1', '2', 'y', 'n', 'esc'}
 
 def handle_input_past_trades():
     """
@@ -20,16 +23,18 @@ def handle_input_past_trades():
     print("Press '3', if you want see all your past trades.\n")
 
     while True:
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            num_of_trades()
-        elif choice == "2":
-            todays_trades()
-        elif choice == "3":
-            all_trades()
-        else:
-            line_break()
-            print("Invalid format, please enter '1' or '2' or '3'.")
+        event = keyboard.read_event(suppress=True)
+        if event.event_type == keyboard.KEY_UP:
+            choice = event.name
+            if choice == "1":
+                num_of_trades()
+                break
+            elif choice == "2":
+                todays_trades()
+                break
+            elif choice == "3":
+                all_trades()
+
 
 def num_of_trades():
     """
