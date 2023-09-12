@@ -153,7 +153,7 @@ def input_direction():
     print("Here you enter the direction of your trade.\n")
     print("For a long direction please press 'L' or 'S'.")
     direction_output = " "
-    
+
     while True:
         
         event = keyboard.read_event(suppress = True)
@@ -268,23 +268,31 @@ def push_input_to_sheet():
     while True:
         event = keyboard.read_event(suppress=True)
         if event.event_type == keyboard.KEY_UP:
-            if event.name.lower() == 'y':
-                line_break()
-                print("Pushing to journal . . .\n")
-                stock_data = SHEET.worksheet('stock_data')
-                stock_data.append_row(trading_journal_entry)
-                time.sleep(2)
-                print("Push successful! Your entry is now stored in your trading journal!\n")
-                time.sleep(2)
-                print("Restarting process . . .\n")
-                print("This takes only 5 seconds . . .")
-                time.sleep(5)
-                main()
-                break
-            elif event.name.lower() == 'n':
-                trading_journal_entry.clear()
-                main()
-                break
+            choice = event.name
+
+            if choice in allowed_keys:
+                if choice == 'y':
+                    line_break()
+                    print("Pushing to journal . . .\n")
+                    stock_data = SHEET.worksheet('stock_data')
+                    stock_data.append_row(trading_journal_entry)
+                    time.sleep(2)
+                    print("Push successful! Your entry is now stored in your trading journal!\n")
+                    time.sleep(2)
+                    print("Restarting process . . .\n")
+                    print("This takes only 5 seconds . . .")
+                    time.sleep(5)
+                    main()
+                    break
+                elif choice == 'n':
+                    line_break()
+                    print("Push declined! Your entry will be deleted!\n")
+                    time.sleep(2)
+                    print("Restarting process . . .\n")
+                    print("This takes only 5 seconds . . .")
+                    time.sleep(5)
+                    main()
+                    break
 
 
 if __name__ == "__main__":
