@@ -3,7 +3,7 @@ import re
 import time
 from functions import line_break, close_script
 from sheet_data import *
-from datetime import datetime
+from datetime import datetime, date
 from tabulate import tabulate
 
 
@@ -76,15 +76,21 @@ def input_date_manually():
     date_str = input("Enter a date: ")
 
     try:
-        date_obj = datetime.strptime(date_str, "%d.%m.%Y")
-        line_break()
-        print(f"Your input '{datetoday}' has been parsed to your journal.")
-        trading_journal_entry.append(date_str)
-        input_ticker()
+        parsed_date = datetime.strptime(date_str, "%d.%m.%Y").date()  # Convert to date object
+        today = date.today()
+        
+        if parsed_date <= today:
+            line_break()
+            print(f"Your input '{date_str}' has been parsed to your journal.")
+            trading_journal_entry.append(parsed_date)
+            input_ticker()
+        else:
+            line_break()
+            print("Invalid date. Please enter a date from today or the past.")
+            input_date_manually()
     except ValueError:
         line_break()
-        print(ValueError)
-        print("Invalid date or format, please use DD.MM.YYYY format.")
+        print("Invalid date format. Please use DD.MM.YYYY format.")
         input_date_manually()
 
 
