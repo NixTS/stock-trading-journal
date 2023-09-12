@@ -6,7 +6,7 @@ from datetime import datetime
 from tabulate import tabulate
 
 
-allowed_keys = {'1', '2', 'y', 'n', 'esc'}
+allowed_keys = {'1', '2', 'esc'}
 
 
 def main():
@@ -33,16 +33,18 @@ def handle_input_past_trades():
         event = keyboard.read_event(suppress=True)
         if event.event_type == keyboard.KEY_UP:
             choice = event.name
-            if choice == "1":
-                num_of_trades()
-                break
-            elif choice == "2":
-                todays_trades()
-                break
-            elif choice == "3":
-                all_trades()
-            elif choice == 'esc':
-                close_script()
+
+            if choice in allowed_keys:
+                if choice == "1":
+                    num_of_trades()
+                    break
+                elif choice == "2":
+                    todays_trades()
+                    break
+                elif choice == "3":
+                    all_trades()
+                elif choice == 'esc':
+                    close_script()
 
 
 def num_of_trades():

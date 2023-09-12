@@ -33,19 +33,21 @@ def handle_input_statistics():
             event = keyboard.read_event(suppress=True)
             if event.event_type == keyboard.KEY_UP:
                 choice = event.name
-                if choice == "1":
-                    past_num_trades_statistic()
-                    break
-                elif choice == "2":
-                    todays_num_trades_statistic()
-                    break
-                elif choice == '3':
-                    all_trades_statistic()
-                elif choice == 'esc':
-                    close_script()
-                else:
-                    line_break()
-                    print("Invalid format, please enter '1' or '2' or '3'.")
+
+                if choice in allowed_keys:
+                    if choice == "1":
+                        past_num_trades_statistic()
+                        break
+                    elif choice == "2":
+                        todays_num_trades_statistic()
+                        break
+                    elif choice == '3':
+                        all_trades_statistic()
+                    elif choice == 'esc':
+                        close_script()
+                    else:
+                        line_break()
+                        print("Invalid format, please enter '1' or '2' or '3'.")
 
 
 def past_num_trades_statistic():

@@ -7,7 +7,7 @@ from datetime import datetime
 from tabulate import tabulate
 
 
-allowed_keys = {'1', '2', 'y', 'n', 'esc'}
+allowed_keys = {'1', '2', 'y', 'n', 's', 'l', 'esc'}
 
 today = datetime.today()
 datetoday = today.strftime("%d.%m.%Y")
@@ -41,13 +41,15 @@ def handle_input_date():
         event = keyboard.read_event(suppress=True)
         if event.event_type == keyboard.KEY_UP:
             choice = event.name
-            if choice == "1":
-                input_date_today()
-                break
-            elif choice == "2":
-                input_date_manually()
-                break
-            elif choice == 'esc':
+
+            if choice in allowed_keys:
+                if choice == "1":
+                    input_date_today()
+                    break
+                elif choice == "2":
+                    input_date_manually()
+                    break
+                elif choice == 'esc':
                     close_script()
 
 
