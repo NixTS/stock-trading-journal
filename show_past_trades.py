@@ -43,7 +43,7 @@ def num_of_trades():
     an error message will appear with the number of all past trades
     """
     line_break()
-    num_of_past_trades = input("Enter the number of last trades to display: \n")
+    num_of_past_trades = input("Enter the number of last trades to display: ")
 
     try:
         num_of_past_trades = int(num_of_past_trades)
@@ -71,18 +71,9 @@ def num_of_trades():
         print(tabulate(last_n_rows, headers, tablefmt="github"))
         print("\n")
 
-    while True:
-        print("Press '1' to enter another number of past trades.")
-        print("Or:")
-        print("Press '2' to go back to the past trades menu.\n")
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            num_of_trades()
-        elif choice == "2":
-            handle_input_past_trades()
-        else:
-            line_break()
-            print("Invalid format, please enter '1' or '2'.")
+    print("Returning to main menu.")
+    time.sleep(2)
+    main()
 
 
 def todays_trades():
@@ -104,14 +95,9 @@ def todays_trades():
     print(tabulate(filtered_rows, headers, tablefmt="github"))
     print("\n")
     
-    while True:
-        print("Press '1' to go back to the past trades menu.\n")
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            handle_input_past_trades()
-        else:
-            line_break()
-            print("Invalid format, please enter '1'.")
+    print("Returning to main menu.")
+    time.sleep(2)
+    main()
 
 
 def all_trades():
@@ -131,14 +117,9 @@ def all_trades():
     print(tabulate(all_rows, headers, tablefmt="github"))
     print("\n")
 
-    while True:
-        print("Press '1' to go back to the past trades menu.\n")
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            handle_input_past_trades()
-        else:
-            line_break()
-            print("Invalid format, please enter '1'.")
+    print("Returning to main menu.")
+    time.sleep(2)
+    main()
 
 
 def main():
