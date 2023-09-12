@@ -15,21 +15,26 @@ datetoday = today.strftime("%d.%m.%Y")
 trading_journal_entry = []
 
 
-def handle_input_date():
+def main():
     """
-    Shows the current date and asks for input if
-    the current date should be used or
-    if one wants to input a date manually.
+    Welcome message and shows the current date
     """
-
-    trading_journal_entry.clear()
-
     line_break()
+    print("Trading journal input\n\n")
     print("Here you can input a new entry to your trading journal.\n")
     print("Please press one of the following buttons on your keyboard to continue:\n")
     print(f"'1' if you want to use the current date: {datetoday}.")
     print("'2' if you want to enter a date manually.\n")
     print("'ESC' if you want to return to the main menu.")
+
+
+def handle_input_date():
+    """
+    Asks for input if
+    the current date should be used or
+    if one wants to input a date manually.
+    """
+    trading_journal_entry.clear()
 
     while True:
         event = keyboard.read_event(suppress=True)
@@ -271,11 +276,6 @@ def push_input_to_sheet():
                 break
 
 
-def main():
-    """
-    Run all program functions
-    """
-    handle_input_date()
-
 if __name__ == "__main__":
     main()
+    handle_input_date()
