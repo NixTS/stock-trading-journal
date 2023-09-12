@@ -43,7 +43,8 @@ def num_of_trades():
     an error message will appear with the number of all past trades
     """
     line_break()
-    num_of_past_trades = input("Enter the number of last trades to display: ")
+    print("Here you can display your past trades.\n")
+    num_of_past_trades = input("Enter the number of past trades: ")
 
     try:
         num_of_past_trades = int(num_of_past_trades)
