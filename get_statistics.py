@@ -1,6 +1,6 @@
 import keyboard
 import time
-from functions import line_break, close_script
+from functions import line_break, close_script, back_to_menu
 from sheet_data import *
 from datetime import datetime
 from tabulate import tabulate
@@ -84,8 +84,7 @@ def past_num_trades_statistic():
     total_profit_loss = calculate_total_profit_loss(last_n_rows)
 
     print(f"Total profit or loss from the past {num_of_past_trades} trades: ${total_profit_loss:.2f}\n")
-    print("Returning to main menu.")
-    time.sleep(2)
+    back_to_menu()
     handle_input_statistics()
 
 
@@ -100,8 +99,7 @@ def todays_num_trades_statistic():
     if not filtered_rows:
         line_break()
         print("No trades with today's date found.\n")
-        print("Returning to main menu.")
-        time.sleep(2)
+        back_to_menu()
         handle_input_statistics()
         
 
@@ -123,9 +121,7 @@ def all_trades_statistic():
 
     total_profit_loss = calculate_total_profit_loss(last_n_rows)
     print(f"Requested all trades profit or loss amount to ${total_profit_loss:.2f}\n")
-
-    print("Returning to main menu.")
-    time.sleep(2)
+    back_to_menu()
     handle_input_statistics()
 
 

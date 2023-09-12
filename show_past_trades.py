@@ -1,6 +1,6 @@
 import keyboard
 import time
-from functions import line_break, close_script
+from functions import line_break, close_script, back_to_menu
 from sheet_data import *
 from datetime import datetime
 from tabulate import tabulate
@@ -82,9 +82,7 @@ def num_of_trades():
     if num_of_past_trades <= total_rows_with_data:
         print(tabulate(last_n_rows, headers, tablefmt="github"))
         print("\n")
-
-    print("Returning to main menu.")
-    time.sleep(2)
+    back_to_menu()
     main()
 
 
@@ -106,9 +104,7 @@ def todays_trades():
     print("Here you can see all trades from today:\n")
     print(tabulate(filtered_rows, headers, tablefmt="github"))
     print("\n")
-    
-    print("Returning to main menu.")
-    time.sleep(2)
+    back_to_menu()
     main()
 
 
@@ -128,9 +124,7 @@ def all_trades():
     time.sleep(2)
     print(tabulate(all_rows, headers, tablefmt="github"))
     print("\n")
-
-    print("Returning to main menu.")
-    time.sleep(2)
+    back_to_menu()
     main()
 
 
