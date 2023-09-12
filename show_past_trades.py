@@ -48,14 +48,16 @@ def num_of_trades():
     try:
         num_of_past_trades = int(num_of_past_trades)
     except ValueError:
+        line_break()
         print("Invalid input. Please enter a number.")
-        return
+        num_of_trades()
 
     total_rows_with_data = sum(1 for row in data if any(row))
 
     if num_of_past_trades <= 0:
+        line_break()
         print("Invalid input. Please enter a positive number.")
-        return
+        num_of_trades()
 
     if num_of_past_trades > total_rows_with_data:
         line_break()
