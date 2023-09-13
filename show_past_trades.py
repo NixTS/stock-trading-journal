@@ -1,4 +1,3 @@
-import keyboard
 import time
 from colorama import Fore, init
 from datetime import datetime
@@ -83,7 +82,6 @@ def num_of_trades():
         print(Fore.RED + f"Requested {num_of_past_trades} rows," +
             f" but there are only {total_rows_with_data}" +
             " rows with data.\n")
-        print(Fore.RED + "Here are all past trades instead.")
         print(Fore.RED + "Here are all past trades instead.")
         all_trades()
         num_of_trades()

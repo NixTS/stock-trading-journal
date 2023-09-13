@@ -108,7 +108,7 @@ uses minimal resource, making it exceptionally resource-efficient.
 ![shares amount correct input](media/readme-images/shares-amount-correct-input.jpg)
 
 **Input Prices**
-+ Input only accepts numbers with 2 decimals for both entry and exit price.
++ Input only accepts numbers with 2 decimals for both entry and exit price.  
 
 ![entry and exit price wrong input](media/readme-images/entry-exit-price-wrong-input.jpg)
 
@@ -218,13 +218,13 @@ Imposing constraints on the accepted input format, such as letters, numbers, num
 + **Validate Dates**  
 ![validate date](media/readme-images/validate-date.jpg)
 
-+ **Validate Letters**
++ **Validate Letters**  
 ![validate ticker](media/readme-images/validate-ticker.jpg)
 
-+ **Validate Numbers**
++ **Validate Numbers**  
 ![validate numbers](media/readme-images/validate-number.jpg)
 
-+ **Validate Numbers with Decimals**
++ **Validate Numbers with Decimals**  
 ![validate numbers with decimals](media/readme-images/validate-number-decimal.jpg)
 
 ### **Input Validation Testing**

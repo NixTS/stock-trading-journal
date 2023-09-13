@@ -1,4 +1,3 @@
-import keyboard
 from colorama import Fore, init
 from datetime import datetime
 

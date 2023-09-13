@@ -1,6 +1,5 @@
 import sys
 import time
-import keyboard
 from colorama import Fore, init
 
 
