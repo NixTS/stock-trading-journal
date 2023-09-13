@@ -63,7 +63,7 @@ def num_of_trades():
     """
     line_break()
     print("Display your past trades.\n")
-    num_of_past_trades = input("Number of past trades: ")
+    num_of_past_trades = input("Number of past trades:\n")
 
     try:
         num_of_past_trades = int(num_of_past_trades)

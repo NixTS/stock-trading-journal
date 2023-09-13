@@ -80,7 +80,7 @@ def input_date_manually():
     """
     line_break()
     print("Please enter a date manually 'DD.MM.YYYY'.\n")
-    date_str = input("Date: ")
+    date_str = input("Date:\n")
 
     try:
         parsed_date = datetime.strptime(date_str, "%d.%m.%Y").date()
@@ -116,7 +116,7 @@ def input_ticker():
         print("Please enter the stock ticker symbol.\n")
         print("Input restricted to 1 - 4 letters.")
         print("Input will be converted to uppercase automatically.\n")
-        ticker = input("Ticker Symbol: ")
+        ticker = input("Ticker Symbol:\n")
 
         if re.match(r"^[a-zA-Z]{1,4}$", ticker):
             trading_journal_entry.append(ticker.upper())
@@ -141,7 +141,7 @@ def input_shares_amount():
         line_break()
         print("Please enter the amount of shares traded.\n")
         print("Input restricted to numbers.\n")
-        shares_amount = input("Shares amount traded: ")
+        shares_amount = input("Shares amount traded:\n")
 
         if re.match(r"^([\s\d]+)$", shares_amount):
             trading_journal_entry.append(shares_amount)
@@ -213,7 +213,7 @@ def input_prices():
         print("Enter the entry price first.\n")
         print("Input is restricted to numbers only.\n")
         print("For Example: 6.45, 12.00, 293.20")
-        entry_price = input("Entry price: ")
+        entry_price = input("Entry price:\n")
 
         if re.match(r"^\d+\.\d{2}$", entry_price):
             prices.append(entry_price)
@@ -225,7 +225,7 @@ def input_prices():
             print(Fore.RED + "for example: 6.45, 12.00, 293.20")
 
     while True:
-        exit_price = input("Exit price: ")
+        exit_price = input("Exit price:\n")
 
         if re.match(r"^\d+\.\d{2}$", exit_price):
             prices.append(exit_price)

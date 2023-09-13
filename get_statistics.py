@@ -60,7 +60,7 @@ def past_num_trades_statistic():
     """
     line_break()
     print("Display your past trades statistic.\n")
-    num_of_past_trades = input("Number of past trades: ")
+    num_of_past_trades = input("Number of past trades:\n")
     total_rows_with_data = sum(
         1 for i, row in enumerate(data)
         if any(row) and i != 0
