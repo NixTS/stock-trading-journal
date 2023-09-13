@@ -1,5 +1,5 @@
 import keyboard
-import time
+from colorama import Fore, Back, init
 from functions import line_break, close_script, back_to_menu
 from sheet_data import *
 from datetime import datetime
@@ -7,6 +7,7 @@ from tabulate import tabulate
 
 
 allowed_keys = {'1', '2', '3', 'esc'}
+init(autoreset = True)
 
 
 def main():
@@ -14,13 +15,13 @@ def main():
     Welcome message and navigation overview
     """
     line_break()
-    print("Trading Statistics\n\n")
+    print(Fore.YELLOW + "Trading Statistics\n\n")
     print("Display your trading statistics.\n")
     print("Please press one of the following buttons to continue:\n")
     print("'1' to enter a number of past trades.")
     print("'2' to display todays trades.")
     print("'3' to display all past trades.\n")
-    print("'ESC' to exit the program.")
+    print(Fore.RED + "'ESC' to exit the program.")
 
 
 def handle_input_statistics():
@@ -58,29 +59,7 @@ def past_num_trades_statistic():
     print("Display your past trades statistic.\n")
     num_of_past_trades = input("Number of past trades: ")
     total_rows_with_data = sum(1 for i, row in enumerate(data) if any(row) and i != 0)
-
-    try:
-        num_of_past_trades = int(num_of_past_trades)
-    except ValueError:
-        line_break()
-        print("Invalid input. Please enter a number.")
-        past_num_trades_statistic()
-
-    if num_of_past_trades <= 0:
-        print("Invalid input. Please enter a positive number.")
-        line_break()
-        past_num_trades_statistic()
-
-    if num_of_past_trades > total_rows_with_data:
-        line_break()
-        print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.\n")
-        print("Here are all past trades statistics instead.")
-        all_trades_statistic()
-        return
-
-    line_break()
     last_n_rows = [row for row in reversed(data[1:]) if any(row)][:num_of_past_trades]
-
     total_profit_loss = calculate_total_profit_loss(last_n_rows)
     total_trades = len(last_n_rows)
     short_trades = sum(1 for row in last_n_rows if row[3] == "Short")
@@ -89,6 +68,26 @@ def past_num_trades_statistic():
     losing_trades = num_of_past_trades - winning_trades
     win_ratio = winning_trades / num_of_past_trades * 100
 
+    try:
+        num_of_past_trades = int(num_of_past_trades)
+    except ValueError:
+        line_break()
+        print(Fore.RED + "Invalid input. Please enter a number.")
+        past_num_trades_statistic()
+
+    if num_of_past_trades <= 0:
+        print(Fore.RED + "Invalid input. Please enter a positive number.")
+        line_break()
+        past_num_trades_statistic()
+
+    if num_of_past_trades > total_rows_with_data:
+        line_break()
+        print(Fore.RED + f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.\n")
+        print(Fore.RED + "Here are all past trades statistics instead.")
+        all_trades_statistic()
+        return
+
+    line_break()
     print(f"Total profit or loss from the past {num_of_past_trades} trades: ${total_profit_loss:.2f}")
     print(f"Total number of trades: {total_trades}")
     print(f"Number of 'Short' trades: {short_trades}")
@@ -106,20 +105,8 @@ def todays_num_trades_statistic():
     Get all past trades statistic with today's date.
     """
     today_date_str = datetime.now().strftime('%d.%m.%Y')
-
     filtered_rows = [row for row in data if any(row) and row[0] == today_date_str]
-
-    if not filtered_rows:
-        line_break()
-        print("No trades with today's date found.\n")
-        back_to_menu()
-        handle_input_statistics()
-        
-
     total_profit_loss = calculate_total_profit_loss(filtered_rows)
-    
-    line_break()
-    print("Todays trades statistic:\n")
     total_trades = len(filtered_rows)
     short_trades = sum(1 for row in filtered_rows if row[3] == "Short")
     long_trades = sum(1 for row in filtered_rows if row[3] == "Long")
@@ -127,6 +114,14 @@ def todays_num_trades_statistic():
     losing_trades = total_trades - winning_trades
     win_ratio = winning_trades / total_trades * 100
 
+    if not filtered_rows:
+        line_break()
+        print(Fore.RED + "No trades with today's date found.\n")
+        back_to_menu()
+        handle_input_statistics()
+    
+    line_break()
+    print("Todays trades statistic:\n")
     print(f"Requested today's trades profit or loss amount to ${total_profit_loss:.2f}\n")
     print(f"Total number of trades: {total_trades}")
     print(f"Number of 'Short' trades: {short_trades}")
@@ -141,11 +136,6 @@ def todays_num_trades_statistic():
 
 def all_trades_statistic():
     all_n_rows = [row for row in reversed(data[1:]) if any(row)]
-    
-    line_break()
-    print("All trades statistic:\n")
-
-    
     total_profit_loss = calculate_total_profit_loss(all_n_rows)
     total_trades = len(all_n_rows)
     short_trades = sum(1 for row in all_n_rows if row[3] == "Short")
@@ -153,7 +143,9 @@ def all_trades_statistic():
     winning_trades = sum(1 for row in all_n_rows if (row[3] == "Long" and row[4] < row[5]) or (row[3] == "Short" and row[4] > row[5]))
     losing_trades = total_trades - winning_trades
     win_ratio = winning_trades / total_trades * 100
-
+    
+    line_break()
+    print("All trades statistic:\n")
     print(f"Requested all trades profit or loss amount to ${total_profit_loss:.2f}\n")
     print(f"Total number of trades: {total_trades}")
     print(f"Number of 'Short' trades: {short_trades}")

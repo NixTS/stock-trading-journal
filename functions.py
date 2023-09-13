@@ -1,12 +1,17 @@
 import sys
 import time
+from colorama import Fore, Back, init
+
+
+init(autoreset = True)
+
 
 def line_break():
     """
     Adds a line and a blank line underneath.
     For visual pleasure.
     """
-    print("__________________________________________________\n")
+    print(Fore.CYAN + "__________________________________________________\n")
 
 def close_script():
     print("\nExiting the program.")

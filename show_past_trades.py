@@ -1,5 +1,6 @@
 import keyboard
 import time
+from colorama import Fore, Back, init
 from functions import line_break, close_script, back_to_menu
 from sheet_data import *
 from datetime import datetime
@@ -7,6 +8,7 @@ from tabulate import tabulate
 
 
 allowed_keys = {'1', '2','3', 'esc'}
+init(autoreset = True)
 
 
 def main():
@@ -14,13 +16,13 @@ def main():
     Welcome message and navigation overview
     """
     line_break()
-    print("Trading Journal\n\n")
+    print(Fore.YELLOW + "Trading Journal\n\n")
     print("Display your past Trades.\n")
     print("Please press one of the following buttons to continue:\n")
     print("'1' to enter a number of past trades.")
     print("'2' to display todays trades.")
     print("'3' to display all past trades.\n")
-    print("'ESC' to exit the program.")
+    print(Fore.RED + "'ESC' to exit the program.")
 
 
 def handle_input_past_trades():
@@ -62,20 +64,20 @@ def num_of_trades():
         num_of_past_trades = int(num_of_past_trades)
     except ValueError:
         line_break()
-        print("Invalid input. Please enter a number.")
+        print(Fore.RED + "Invalid input. Please enter a number.")
         num_of_trades()
 
     total_rows_with_data = sum(1 for row in data if any(row))
 
     if num_of_past_trades <= 0:
         line_break()
-        print("Invalid input. Please enter a positive number.")
+        print(Fore.RED + "Invalid input. Please enter a positive number.")
         num_of_trades()
 
     if num_of_past_trades > total_rows_with_data:
         line_break()
-        print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.\n")
-        print("Here are all past trades instead.")
+        print(Fore.RED + f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.\n")
+        print(Fore.RED + "Here are all past trades instead.")
         all_trades()
         num_of_trades()
 
@@ -100,7 +102,7 @@ def todays_trades():
     filtered_rows = [row for row in data if any(row) and row[0] == today_date_str]
 
     if not filtered_rows:
-        print("No trades with today's date found.")
+        print(Fore.RED + "No trades with today's date found.")
         return
     
     line_break()

@@ -1,5 +1,5 @@
 import keyboard
-from colorama import Fore, Back, Style
+from colorama import Fore, Back, init
 from input_stock_data import handle_input_date
 from show_past_trades import handle_input_past_trades
 from get_statistics import handle_input_statistics
@@ -7,7 +7,7 @@ from functions import line_break, close_script
 from sheet_data import *
 
 allowed_keys = {'1', '2', '3', 'esc'}
-
+init(autoreset = True)
 
 def main():
     """
@@ -15,12 +15,12 @@ def main():
     Prints a message to the UI to select options.
     """
     line_break()
-    print("Welcome to your Stock Trading Journal!\n\n")
+    print(Fore.YELLOW + "Welcome to your Stock Trading Journal!\n\n")
     print("Please press one of the following buttons to continue:\n")
     print("'1' to input stock trading data.")
     print("'2' to display journal entries.")
     print("'3' to display trading statistics.\n")
-    print("'ESC' to exit the program.")
+    print(Fore.RED + "'ESC' to exit the program.")
 
 
 def handle_input():
