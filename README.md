@@ -152,20 +152,44 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 ## **Technologies**
 
-### **Core technologies**
+### **Language**
 
-+ Python
-  + This project uses python ...
-+ [Codeanywhere](https://app.codeanywhere.com/)
-  + Codeanywhere is a cloud-based integrated development environment (IDE) that allows developers to collaborate, write, and execute code from anywhere.
-+ [GitHub](https://github.com/)
-  + GitHub is the hosting website used to store the source code for the website and [Git Pages](https://pages.github.com/) is used for the deployment of the live website.
++ [Python](https://www.python.org/)
+    - Main programming language used in this project
+
+### **Libraries**
+
++ [Colorama](https://pypi.org/project/colorama/)
+    - Used to color terminal text
++ [Keyboard](https://pypi.org/project/keyboard/)
+    - Used for direct keyboard inputs
++ [Tabulate](https://pypi.org/project/tabulate/)
+    - Used to create tables in the terminal
++ [GSpread](https://docs.gspread.org/en/v5.10.0/)
+    - Python API for google sheets
++ [Time](https://docs.python.org/3/library/time.html)
+    - Provides various time-related functions
++ [Datetime](https://docs.python.org/3/library/datetime.html)
+    - Used to manipulate times and dates
++ [RegEx](https://docs.python.org/3/library/re.html)
+    - Used to further controle and validate inputs
+
+### **Tools**
+
++ [PIP](https://pypi.org/project/pip/)
+    - Package installer for Python
 + [Git](https://git-scm.com/)
-  + Git is used as version control software to commit and push code to the GitHub repository where the source code is stored.
-+ [Lucid Charts --- Link needed]()
-  + A
-
-### **Implemented Technologies** 
+    - Version control system
++ [GitHub](https://github.com/)
+    - Used to store and manage code
++ [Heroku](https://dashboard.heroku.com/)
+    - Used to deploy the project
++ [Visual Studio Code](https://code.visualstudio.com/)
+    - Open source code editor
++ [Lucid Charts](https://www.lucidchart.com/pages/)
+    - Data and chart visualization
++ [CI Python Linter](https://pep8ci.herokuapp.com)
+    - Code quality advisor software for error and mistakes detection
 
 ## **Testing**
 
