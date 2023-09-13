@@ -4,8 +4,6 @@ from datetime import datetime
 from functions import line_break, close_script, back_to_menu
 from sheet_data import *
 
-
-allowed_keys = {'1', '2', '3', 'esc'}
 init(autoreset=True)
 
 
@@ -20,7 +18,6 @@ def main():
     print("'1' to enter a number of past trades.")
     print("'2' to display todays trades.")
     print("'3' to display all past trades.\n")
-    print(Fore.RED + "'ESC' to exit the program.")
 
 
 def handle_input_statistics():
@@ -32,22 +29,24 @@ def handle_input_statistics():
     ESC: to exit the program; using sys.exit
     """
     main()
-    while True:
-        event = keyboard.read_event(suppress=True)
-        if event.event_type == keyboard.KEY_UP:
-            choice = event.name
+    
+    allowed_keys = {'1', '2', '3'}
 
-            if choice in allowed_keys:
-                if choice == "1":
-                    past_num_trades_statistic()
-                    break
-                elif choice == "2":
-                    todays_num_trades_statistic()
-                    break
-                elif choice == '3':
-                    all_trades_statistic()
-                elif choice == 'esc':
-                    close_script()
+    while True:
+        choice = input("Enter Navigation: \n").lower()
+
+        if choice in allowed_keys:
+            if choice == '1':
+                past_num_trades_statistic()
+            elif choice == '2':
+                todays_num_trades_statistic()
+            elif choice == '3':
+                all_trades_statistic()
+        else:
+            line_break()
+            print(Fore.RED + "Please enter a valid choice.")
+            print(Fore.RED + "1, 2 or 3")
+            main()
 
 
 def past_num_trades_statistic():
@@ -84,7 +83,6 @@ def past_num_trades_statistic():
               " rows with data.\n")
         print(Fore.RED + "Here are all past trades statistics instead.")
         all_trades_statistic()
-        return
 
     last_n_rows = [
         row for row in reversed(data[1:])
