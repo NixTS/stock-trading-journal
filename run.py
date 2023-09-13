@@ -8,7 +8,8 @@ from functions import line_break, close_script
 from sheet_data import *
 
 allowed_keys = {'1', '2', '3', 'esc'}
-init(autoreset = True)
+init(autoreset=True)
+
 
 def main():
     """
@@ -29,7 +30,7 @@ def handle_input():
     Handles key presses to navigate menu
     1: Input stock trading data to journal
     2: Display trading journal
-    3: Display trading statistics 
+    3: Display trading statistics
     ESC: to exit the program; using sys.exit
     """
     while True:
@@ -51,3 +52,4 @@ def handle_input():
 if __name__ == "__main__":
     main()
     handle_input()
+    
