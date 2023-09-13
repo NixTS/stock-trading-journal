@@ -29,8 +29,11 @@ def main():
 
 def handle_input_past_trades():
     """
-    Gives an option to either view a certain number of trade,
-    todays trades, or all past trades.
+    Handles key presses to navigate menu
+    1: Enter number of past trades to display
+    2: Display todays trades
+    3: Display all past trades
+    ESC: to exit the program; using sys.exit
     """
     main()
     while True:
@@ -57,6 +60,7 @@ def num_of_trades():
     Enter a number to display past trades.
     If the number is higher than all past trades,
     an error message will appear with the number of all past trades
+    Instead shows all past trades.
     """
     line_break()
     print("Display your past trades.\n")
@@ -119,7 +123,7 @@ def todays_trades():
 
 def all_trades():
     """
-    Display all trades in google sheet without header row.
+    Display all trades in google sheet.
     """
     headers = stock_data.row_values(1)
     all_rows = list(data[1:])

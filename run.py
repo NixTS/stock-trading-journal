@@ -30,7 +30,7 @@ def handle_input():
     1: Input stock trading data to journal
     2: Display trading journal
     3: Display trading statistics 
-    ESC: to exit the program; using quit()
+    ESC: to exit the program; using sys.exit
     """
     while True:
         event = keyboard.read_event(suppress=True)

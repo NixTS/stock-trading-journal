@@ -35,9 +35,10 @@ def main():
 
 def handle_input_date():
     """
-    Asks for input if
-    the current date should be used or
-    if one wants to input a date manually.
+    Handles key presses to navigate menu
+    1: Push current date
+    2: Push manually entered date 
+    ESC: to exit the program; using sys.exit
     """
     main()
     trading_journal_entry.clear()
@@ -62,7 +63,7 @@ def handle_input_date():
 def input_date_today():
     """
     If option 1 is selected, prints a message showing the current date
-    and append the date to the list.
+    and pushes the current date to the list.
     """
     line_break()
     print(Fore.GREEN + f"The current date '{datetoday}' will be parsed to your journal.")
@@ -103,8 +104,8 @@ def input_ticker():
     """
     Asks for a stock ticker input, only letters from a - z, A - Z
     and only 1-4 characters are allowed.
-    Loop repeats if input was incorrect.
-    The ticker will be appended to the list.
+    Loop repeats if input was incorrectly formatted.
+    The ticker will be pushed to the list.
     """
     while True:
         line_break()
@@ -127,8 +128,8 @@ def input_ticker():
 def input_shares_amount():
     """
     Asks for shares traded amount, only numbers are allowed.
-    Loop repeats if input was incorrect.
-    The shares amount will be appended to the list.
+    Loop repeats if input was incorrectly formatted.
+    The shares amount will be pushed to the list.
     """
     while True:
         line_break()
@@ -149,10 +150,11 @@ def input_shares_amount():
 
 def input_direction():
     """
-    Asks for trade direction, only l L and s S input allowed.
-    converts l L = Long and s S = .Short
-    Loop repeats if input was incorrect.
-    The word Long/Short will be appended to the list.
+    Asks for trade direction
+    Key press to input
+    L = Long
+    S = Short
+    On key press each word will be pushed respectively
     """
     line_break()
     print("Please enter the direction of your trade.\n")
@@ -185,10 +187,11 @@ def input_direction():
 
 def input_prices():
     """
-    Asks for entry and exit price, only numbers are allowed.
-    Input will be appended to the prices list, prices list will be extended to list.
+    Asks for entry and exit price
+    only numbers are allowed.
+    Input will be pushed to the prices list, prices list will be extended to list.
     Loop repeats if input was incorrect.
-    The shares amount will be appended to the list.
+    The shares amount will be pushed to the list.
     """
 
     prices = []
@@ -228,8 +231,8 @@ def input_prices():
 
 def show_input():
     """
-    After successful input of all entries and overview
-    in form of a table will be displayed.
+    After successful input of all entries
+    overview in form of a table will be displayed.
     """
     total_profit_loss = 0
 
@@ -304,6 +307,11 @@ def push_input_to_sheet():
 
 
 def sort_sheet_by_date():
+    """
+    After successfully pushing the data to the sheet
+    sheet will be sorted by date
+    in case an older date was pushed
+    """
     headers = data[0]
     stock_data.sort((headers.index("Date") + 1, 'asc'))
     time.sleep(5)

@@ -27,8 +27,11 @@ def main():
 
 def handle_input_statistics():
     """
-    Gives an option to either get statistics for a number of trades,
-    or todays trades or all trades.
+    Handles key presses to navigate menu
+    1: Enter number of past trades statistic to display
+    2: Display todays trades statistic
+    3: Display all past trades statistic
+    ESC: to exit the program; using sys.exit
     """
     main()
     while True:
@@ -54,7 +57,8 @@ def past_num_trades_statistic():
     """
     Enter a number to get data from past trades.
     If the number is higher than all past trades,
-    an error message will appear with the number of all past trades
+    an error message will appear with the max. number of all past trades.
+    Instead redirects to show all past trades statistic.
     """
     line_break()
     print("Display your past trades statistic.\n")
@@ -136,6 +140,9 @@ def todays_num_trades_statistic():
 
 
 def all_trades_statistic():
+    """
+    Get all past trades statistic.
+    """
     all_n_rows = [row for row in reversed(data[1:]) if any(row)]
     total_profit_loss = calculate_total_profit_loss(all_n_rows)
     total_trades = len(all_n_rows)
@@ -160,6 +167,11 @@ def all_trades_statistic():
 
 
 def calculate_total_profit_loss(last_n_rows):
+    """
+    Calculates the total profits
+    Short = entry_price - exit_price * num_of_shares
+    Long = exit_price - entry_price * num_of_shares
+    """
     total_profit_loss = 0
 
     for row in last_n_rows:
