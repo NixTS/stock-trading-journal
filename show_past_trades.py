@@ -6,7 +6,7 @@ from datetime import datetime
 from tabulate import tabulate
 
 
-allowed_keys = {'1', '2', 'esc'}
+allowed_keys = {'1', '2','3', 'esc'}
 
 
 def main():
@@ -74,16 +74,16 @@ def num_of_trades():
 
     if num_of_past_trades > total_rows_with_data:
         line_break()
-        print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.")
+        print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.\n")
         print("Here are all past trades instead.")
         all_trades()
         num_of_trades()
 
     line_break()
     headers = stock_data.row_values(1)
-    last_n_rows = [row for row in reversed(data) if any(row)][:num_of_past_trades]
+    last_n_rows = [row for row in reversed(data[1:]) if any(row)][:num_of_past_trades]
 
-    print(f"Here you can see your past {num_of_past_trades} trades:\n")
+    print(f"Your past {num_of_past_trades} trades:\n")
     if num_of_past_trades <= total_rows_with_data:
         print(tabulate(last_n_rows, headers, tablefmt="github"))
         print("\n")
@@ -106,7 +106,7 @@ def todays_trades():
     line_break()
     headers = stock_data.row_values(1)
 
-    print("Here you can see all trades from today:\n")
+    print("All trades with todays date:\n")
     print(tabulate(filtered_rows, headers, tablefmt="github"))
     print("\n")
     back_to_menu()
@@ -118,13 +118,13 @@ def all_trades():
     Display all trades in google sheet without header row.
     """
     headers = stock_data.row_values(1)
-    all_rows = list(data)
+    all_rows = list(data[1:])
 
     if all_rows and all_rows[0] == headers:
         all_rows.pop(0)
 
     line_break()
-    print("Here you can see all your past trades:\n")
+    print("All your past trades:\n")
     print("This may take a while . . .\n")
     time.sleep(2)
     print(tabulate(all_rows, headers, tablefmt="github"))
