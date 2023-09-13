@@ -118,7 +118,37 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 ### **Existing Features**
 
+**Program**
++ Terminal based for quick responsiveness
++ Sorting google sheet after every entry if an older date was pushed
++ A close program function when pressing ESC while in main menu
++ Asks to return to menu on button press '1'
+
+**Inputs**
++ This program uses direct keyboard input for quick navigation
++ Data input to fill out a google sheet
++ Input validation for input fields to minimize incorrect data entries
+
+**Display past Trades**
++ Three options to choose from when displaying past trades
++ Specify a number of past trades to show in a table
++ Show todays trades in a table
++ Show all trades in a table
+
+**Get Statistics**
++ Three options to choose from when displaying past trades statistics
++ Specify a number of past trades statistics
++ Show todays trades statistic
++ Show all trades statistics
++ Shows number of trades, profit/loss, number of long/short, number of winning/losing trades and win-loss-ratio.
+
 ### **Features left to implement**
+
++ API connection to brokerage software to automate the process of entering trades.
+> Given the relatively low daily trade volume, implementing automation would not yield a cost-effective solution for this scenario.
+
++ A delete past trades function will be implemented in the future.
+> Due to very strict input validation, a delete past trades is not necessary yet.
 
 ## **Technologies**
 
