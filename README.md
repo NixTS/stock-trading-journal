@@ -193,13 +193,43 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 ## **Testing**
 
-### **Procedure**
++ Thorough testing procedures were applied throughout the development lifecycle of the Stock Trading Journal program.
++ Following the implementation of each function, a testing regimen was conducted to assess not only its functionality but also its seamless integration with other program functions.
++ Testing criteria included evaluating the visibility and comprehensibility of user interfaces as well as the overall design integrity of the application.
 
 ### **Input Validation**
 
-### **Functionality**
+In this program, there are various methods for inputting data:
 
-### **Validator testing**
++ Using keyboard keys for menu navigation.
++ Utilizing keyboard keys in scenarios where there are two or more predefined options.
++ Entering numerical values or sequences of letters when creating journal entries.
+
+Each input field within the program is safeguarded against errors through one of the following mechanisms:
+
++ **Restricting input to specific keys, ensuring only permissible characters are accepted.**
+
+![screenshow allowed keys](media/readme-images/allowed_keys.jpg)
+
+![example allowed keys](media/readme-images/example-allowed_keys.jpg)
+
+Imposing constraints on the accepted input format, such as letters, numbers, numbers with decimals, specific dates like today or past dates thereby preventing invalid data entry.
+
++ **Validate Dates**  
+![validate date](media/readme-images/validate-date.jpg)
+
++ **Validate Letters**
+![validate ticker](media/readme-images/validate-ticker.jpg)
+
++ **Validate Numbers**
+![validate numbers](media/readme-images/validate-number.jpg)
+
++ **Validate Numbers with Decimals**
+![validate numbers with decimals](media/readme-images/validate-number-decimal.jpg)
+
+### **Input Validation Testing**
+
+### **Functionality**
 
 ### **Unresolved Errors, Issues and Bugs**
 
