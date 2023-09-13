@@ -6,8 +6,6 @@ from tabulate import tabulate
 from functions import line_break, close_script, back_to_menu
 from sheet_data import *
 
-
-allowed_keys = {'1', '2', '3', 'esc'}
 init(autoreset=True)
 
 
@@ -22,7 +20,6 @@ def main():
     print("'1' to enter a number of past trades.")
     print("'2' to display todays trades.")
     print("'3' to display all past trades.\n")
-    print(Fore.RED + "'ESC' to exit the program.")
 
 
 def handle_input_past_trades():
@@ -34,23 +31,24 @@ def handle_input_past_trades():
     ESC: to exit the program; using sys.exit
     """
     main()
-    while True:
-        event = keyboard.read_event(suppress=True)
-        if event.event_type == keyboard.KEY_UP:
-            choice = event.name
 
-            if choice in allowed_keys:
-                if choice == "1":
-                    num_of_trades()
-                    break
-                elif choice == "2":
-                    todays_trades()
-                    break
-                elif choice == "3":
-                    all_trades()
-                    break
-                elif choice == 'esc':
-                    close_script()
+    allowed_keys = {'1', '2', '3'}
+
+    while True:
+        choice = input("Enter Navigation: \n").lower()
+
+        if choice in allowed_keys:
+            if choice == '1':
+                num_of_trades()
+            elif choice == '2':
+                todays_trades()
+            elif choice == '3':
+                all_trades()
+        else:
+            line_break()
+            print(Fore.RED + "Please enter a valid choice.")
+            print(Fore.RED + "1, 2 or 3")
+            main()
 
 
 def num_of_trades():
@@ -84,7 +82,6 @@ def num_of_trades():
             " rows with data.\n")
         print(Fore.RED + "Here are all past trades instead.")
         all_trades()
-        num_of_trades()
 
     line_break()
     headers = stock_data.row_values(1)
@@ -115,7 +112,7 @@ def todays_trades():
 
     if not filtered_rows:
         print(Fore.RED + "No trades with today's date found.")
-        return
+        handle_input_past_trades()
 
     line_break()
     headers = stock_data.row_values(1)
