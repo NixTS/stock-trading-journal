@@ -1,6 +1,7 @@
 import keyboard
 import re
 import time
+import bisect
 from functions import line_break, close_script
 from sheet_data import *
 from datetime import datetime, date
@@ -281,8 +282,7 @@ def push_input_to_sheet():
                     time.sleep(2)
                     print("Restarting process . . .\n")
                     print("This takes only 5 seconds . . .")
-                    time.sleep(5)
-                    main()
+                    sort_sheet_by_date()
                     break
                 elif choice == 'n':
                     line_break()
@@ -293,6 +293,13 @@ def push_input_to_sheet():
                     time.sleep(5)
                     main()
                     break
+
+
+def sort_sheet_by_date():
+    headers = data[0]
+    stock_data.sort((headers.index("Date") + 1, 'asc'))
+    time.sleep(5)
+    main()
 
 
 if __name__ == "__main__":
