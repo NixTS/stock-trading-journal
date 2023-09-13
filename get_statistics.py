@@ -1,9 +1,10 @@
 import keyboard
-from colorama import Fore, Back, init
+from colorama import Fore, init
+from datetime import datetime
+
 from functions import line_break, close_script, back_to_menu
 from sheet_data import *
-from datetime import datetime
-from tabulate import tabulate
+
 
 
 allowed_keys = {'1', '2', '3', 'esc'}

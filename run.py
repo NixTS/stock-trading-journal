@@ -1,5 +1,6 @@
 import keyboard
-from colorama import Fore, Back, init
+from colorama import Fore, init
+
 from input_stock_data import handle_input_date
 from show_past_trades import handle_input_past_trades
 from get_statistics import handle_input_statistics

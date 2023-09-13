@@ -1,10 +1,11 @@
 import sys
 import time
 import keyboard
-from colorama import Fore, Back, init
+from colorama import Fore, init
 
 
 allowed_keys = ('1')
+
 
 init(autoreset = True)
 
@@ -17,7 +18,8 @@ def line_break():
     print(Fore.CYAN + "__________________________________________________\n")
 
 def close_script():
-    print("\nExiting the program.")
+    line_break()
+    print(Fore.RED + "\nExiting the program.")
     line_break()
     sys.exit(0)
 
