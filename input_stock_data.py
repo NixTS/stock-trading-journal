@@ -214,34 +214,35 @@ def input_prices():
         print("Input is restricted to numbers only.\n")
         print("For Example: 6.45, 12.00, 293.20")
         entry_price = input("Entry price: \n")
-        exit_price = None 
 
         if re.match(r"^\d+\.\d{2}$", entry_price):
             prices.append(entry_price)
+            break
         else:
             line_break()
             print(Fore.RED + "Invalid input." +
                 " Please enter a number with exactly two decimals.")
             print(Fore.RED + "for example: 6.45, 12.00, 293.20")
 
-        while True:
-            exit_price = input("Exit price: \n")
-
-            if re.match(r"^\d+\.\d{2}$", exit_price):
-                prices.append(exit_price)
-                break
-            else:
-                line_break()
-                print(Fore.RED + "Invalid input." +
-                    " Please enter a number with exactly two decimals.")
-                print(Fore.RED + "for example: 6.45, 12.00, 293.20")
-
+    while True:
         line_break()
-        print(Fore.GREEN + f"Your input of entry price $ {entry_price}" +
-            f" and exit price $ {exit_price}" + 
-            " will be parsed to your journal.")
-        trading_journal_entry.extend(prices)
-        show_input()
+        exit_price = input("Exit price: \n")
+
+        if re.match(r"^\d+\.\d{2}$", exit_price):
+            prices.append(exit_price)
+            break
+        else:
+            line_break()
+            print(Fore.RED + "Invalid input." +
+                " Please enter a number with exactly two decimals.")
+            print(Fore.RED + "for example: 6.45, 12.00, 293.20")
+
+    line_break()
+    print(Fore.GREEN + f"Your input of entry price $ {entry_price}" +
+        f" and exit price $ {exit_price}" + 
+        " will be parsed to your journal.")
+    trading_journal_entry.extend(prices)
+    show_input()
 
 
 def show_input():
