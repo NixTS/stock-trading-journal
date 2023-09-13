@@ -17,9 +17,9 @@ def main():
     print("Trading Statistics\n\n")
     print("Display your trading statistics.\n")
     print("Please press one of the following buttons to continue:\n")
-    print("Press '1' on your keyboard to enter a number.")
-    print("Press '2', if you want to get todays trades.")
-    print("Press '3', if you want to get all your past trades.\n")
+    print("'1' to enter a number of past trades.")
+    print("'2' to display todays trades.")
+    print("'3' to display all past trades.\n")
     print("'ESC' to exit the program.")
 
 
@@ -55,8 +55,8 @@ def past_num_trades_statistic():
     an error message will appear with the number of all past trades
     """
     line_break()
-    print("Here you can get your past trades statistic.\n")
-    num_of_past_trades = input("Enter the number of past trades: ")
+    print("Display your past trades statistic.\n")
+    num_of_past_trades = input("Number of past trades: ")
     total_rows_with_data = sum(1 for i, row in enumerate(data) if any(row) and i != 0)
 
     try:
@@ -74,7 +74,7 @@ def past_num_trades_statistic():
     if num_of_past_trades > total_rows_with_data:
         line_break()
         print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.\n")
-        print("Here are your all time trade statistics instead.")
+        print("Here are all past trades statistics instead.")
         all_trades_statistic()
         return
 
@@ -82,8 +82,21 @@ def past_num_trades_statistic():
     last_n_rows = [row for row in reversed(data[1:]) if any(row)][:num_of_past_trades]
 
     total_profit_loss = calculate_total_profit_loss(last_n_rows)
+    total_trades = len(last_n_rows)
+    short_trades = sum(1 for row in last_n_rows if row[3] == "Short")
+    long_trades = sum(1 for row in last_n_rows if row[3] == "Long")
+    winning_trades = sum(1 for row in last_n_rows if (row[3] == "Long" and row[4] < row[5]) or (row[3] == "Short" and row[4] > row[5]))
+    losing_trades = num_of_past_trades - winning_trades
+    win_ratio = winning_trades / num_of_past_trades * 100
 
-    print(f"Total profit or loss from the past {num_of_past_trades} trades: ${total_profit_loss:.2f}\n")
+    print(f"Total profit or loss from the past {num_of_past_trades} trades: ${total_profit_loss:.2f}")
+    print(f"Total number of trades: {total_trades}")
+    print(f"Number of 'Short' trades: {short_trades}")
+    print(f"Number of 'Long' trades: {long_trades}")
+    print(f"Number of winning trades: {winning_trades}")
+    print(f"Number of losing trades: {losing_trades}")
+    print(f"Win ratio: {win_ratio:.2f}\n")
+
     back_to_menu()
     handle_input_statistics()
 
@@ -106,21 +119,49 @@ def todays_num_trades_statistic():
     total_profit_loss = calculate_total_profit_loss(filtered_rows)
     
     line_break()
-    print("Here you can see your statistics from today's trades:\n")
+    print("Todays trades statistic:\n")
+    total_trades = len(filtered_rows)
+    short_trades = sum(1 for row in filtered_rows if row[3] == "Short")
+    long_trades = sum(1 for row in filtered_rows if row[3] == "Long")
+    winning_trades = sum(1 for row in filtered_rows if (row[3] == "Long" and row[4] < row[5]) or (row[3] == "Short" and row[4] > row[5]))
+    losing_trades = total_trades - winning_trades
+    win_ratio = winning_trades / total_trades * 100
+
     print(f"Requested today's trades profit or loss amount to ${total_profit_loss:.2f}\n")
-    print("Returning to main menu.")
-    time.sleep(2)
+    print(f"Total number of trades: {total_trades}")
+    print(f"Number of 'Short' trades: {short_trades}")
+    print(f"Number of 'Long' trades: {long_trades}")
+    print(f"Number of winning trades: {winning_trades}")
+    print(f"Number of losing trades: {losing_trades}")
+    print(f"Win ratio: {win_ratio:.2f}\n")
+
+    back_to_menu()
     handle_input_statistics()
 
 
 def all_trades_statistic():
-    last_n_rows = [row for row in reversed(data[1:]) if any(row)]
+    all_n_rows = [row for row in reversed(data[1:]) if any(row)]
     
     line_break()
-    print("Here you can see your statistics from all trades:\n")
+    print("All trades statistic:\n")
 
-    total_profit_loss = calculate_total_profit_loss(last_n_rows)
+    
+    total_profit_loss = calculate_total_profit_loss(all_n_rows)
+    total_trades = len(all_n_rows)
+    short_trades = sum(1 for row in all_n_rows if row[3] == "Short")
+    long_trades = sum(1 for row in all_n_rows if row[3] == "Long")
+    winning_trades = sum(1 for row in all_n_rows if (row[3] == "Long" and row[4] < row[5]) or (row[3] == "Short" and row[4] > row[5]))
+    losing_trades = total_trades - winning_trades
+    win_ratio = winning_trades / total_trades * 100
+
     print(f"Requested all trades profit or loss amount to ${total_profit_loss:.2f}\n")
+    print(f"Total number of trades: {total_trades}")
+    print(f"Number of 'Short' trades: {short_trades}")
+    print(f"Number of 'Long' trades: {long_trades}")
+    print(f"Number of winning trades: {winning_trades}")
+    print(f"Number of losing trades: {losing_trades}")
+    print(f"Win ratio: {win_ratio:.2f}\n")
+    
     back_to_menu()
     handle_input_statistics()
 
