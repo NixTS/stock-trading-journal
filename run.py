@@ -5,8 +5,8 @@ from get_statistics import handle_input_statistics
 from functions import line_break
 from sheet_data import *
 
-allowed_keys = {'1', '2', '3'}
 init(autoreset=True)
+
 
 def main():
     """
@@ -20,6 +20,7 @@ def main():
     print("'2' to display journal entries.")
     print("'3' to display trading statistics.\n")
 
+
 def handle_input():
     """
     Handles key presses to navigate menu
@@ -27,6 +28,8 @@ def handle_input():
     2: Display trading journal
     3: Display trading statistics 
     """
+    allowed_keys = {'1', '2', '3'}
+
     while True:
         choice = input("Enter Navigation: \n").lower()
 
