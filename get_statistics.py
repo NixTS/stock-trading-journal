@@ -62,24 +62,9 @@ def past_num_trades_statistic():
     print("Display your past trades statistic.\n")
     num_of_past_trades = input("Number of past trades: \n")
     total_rows_with_data = sum(
-        1 for i, row in enumerate(data)
-        if any(row) and i != 0
-        )
-    last_n_rows = [
-        row for row in reversed(data[1:])
-        if any(row)
-        ][:num_of_past_trades]
-    total_profit_loss = calculate_total_profit_loss(last_n_rows)
-    total_trades = len(last_n_rows)
-    short_trades = sum(1 for row in last_n_rows if row[3] == "Short")
-    long_trades = sum(1 for row in last_n_rows if row[3] == "Long")
-    winning_trades = sum(
-        1 for row in last_n_rows
-        if (row[3] == "Long" and row[4] < row[5])
-        or (row[3] == "Short" and row[4] > row[5])
-        )
-    losing_trades = num_of_past_trades - winning_trades
-    win_ratio = winning_trades / num_of_past_trades * 100
+            1 for i, row in enumerate(data)
+            if any(row) and i != 0
+            )
 
     try:
         num_of_past_trades = int(num_of_past_trades)
@@ -96,11 +81,27 @@ def past_num_trades_statistic():
     if num_of_past_trades > total_rows_with_data:
         line_break()
         print(Fore.RED + f"Requested {num_of_past_trades} rows," +
-              f" but there are only {total_rows_with_data}" + 
+              f" but there are only {total_rows_with_data}" +
               " rows with data.\n")
         print(Fore.RED + "Here are all past trades statistics instead.")
         all_trades_statistic()
         return
+
+    last_n_rows = [
+        row for row in reversed(data[1:])
+        if any(row)
+        ][:num_of_past_trades]
+    total_profit_loss = calculate_total_profit_loss(last_n_rows)
+    total_trades = len(last_n_rows)
+    short_trades = sum(1 for row in last_n_rows if row[3] == "Short")
+    long_trades = sum(1 for row in last_n_rows if row[3] == "Long")
+    winning_trades = sum(
+        1 for row in last_n_rows
+        if (row[3] == "Long" and row[4] < row[5])
+        or (row[3] == "Short" and row[4] > row[5])
+        )
+    losing_trades = num_of_past_trades - winning_trades
+    win_ratio = winning_trades / num_of_past_trades * 100
 
     line_break()
     print(f"Total profit or loss from" +
