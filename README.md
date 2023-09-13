@@ -1,32 +1,76 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Stock Trading Journal**
 
-Welcome,
+Live Website: [Stock Trading Journal - Not Yet Deployed](https://nixts)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Project description
 
-## Reminders
+## **Project Goals**
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## **User Goals**
 
-## Creating the Heroku app
+### **First Time Users Goals**
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### **Frequent User Goals**
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## **Structure**
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### **Navigation**
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### **Input**
 
-Connect your GitHub repository and deploy as normal.
+## **Features**
 
-## Constraints
+### **Existing Features**
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### **Features left to implement**
 
----
+## **Technologies**
 
-Happy coding!
+### **Core technologies**
+
++ Python
+  + This project uses python ...
++ [Codeanywhere](https://app.codeanywhere.com/)
+  + Codeanywhere is a cloud-based integrated development environment (IDE) that allows developers to collaborate, write, and execute code from anywhere.
++ [GitHub](https://github.com/)
+  + GitHub is the hosting website used to store the source code for the website and [Git Pages](https://pages.github.com/) is used for the deployment of the live website.
++ [Git](https://git-scm.com/)
+  + Git is used as version control software to commit and push code to the GitHub repository where the source code is stored.
++ [Lucid Charts --- Link needed]()
+  + A
+
+### **Implemented Technologies** 
+
+## **Testing**
+
+### **Procedure**
+
+### **Input Validation**
+
+### **Functionality**
+
+### **Validator testing**
+
+### **Unresolved Errors, Issues and Bugs**
+
+## **Deployment**
+
+### **Project Creation**
+
+The project was started by navigating to the [template --- link needed](https://github) and clicking 'Use this template'. Under Repository name I input woodworking-club and checked the 'Include all branches' checkbox. I then navigated to the new [repository --- link needed](). I then clicked the Code drop down and selected HTTPS and copied the link to the clipboard.
+
+Opening [Codeanywhere](https://app.codeanywhere.com/) and clicking 'New Workspace', I then pasted the [repository link --- link needed](https://github) into the URL field and clicked 'Create'. The following commands were used throughout the project:
+
++ git add filename - This command was used to add files to the staging area before committing.
++ git commit -m *commit message explaining the updates* - This command was used to commit changes to the local repository.
++ git push - This command is used to push all committed changes to the GitHub repository.
+
+### **Run Locally**
+
+### **Deployment**
+
+## **Credits**
+
+### **Content**
+
+### **Acknowledgements**
