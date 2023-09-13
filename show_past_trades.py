@@ -14,13 +14,13 @@ def main():
     Welcome message and navigation overview
     """
     line_break()
-    print("Trading journal\n\n")
-    print("If you want to display your past trades, please follow the instructions given to you.\n")
-    print("Press '1' on your keyboard to enter a number.")
-    print("Or:")
-    print("Press '2', if you want see todays trades.")
-    print("Or:")
-    print("Press '3', if you want see all your past trades.\n")
+    print("Trading Journal\n\n")
+    print("Display your past Trades.\n")
+    print("Please press one of the following buttons to continue:\n")
+    print("'1' to enter a number of past trades.")
+    print("'2' to display todays trades.")
+    print("'3' to display all past trades.\n")
+    print("'ESC' to exit the program.")
 
 
 def handle_input_past_trades():
@@ -55,8 +55,8 @@ def num_of_trades():
     an error message will appear with the number of all past trades
     """
     line_break()
-    print("Here you can display your past trades.\n")
-    num_of_past_trades = input("Enter the number of past trades: ")
+    print("Display your past trades.\n")
+    num_of_past_trades = input("Number of past trades: ")
 
     try:
         num_of_past_trades = int(num_of_past_trades)
@@ -75,6 +75,8 @@ def num_of_trades():
     if num_of_past_trades > total_rows_with_data:
         line_break()
         print(f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.")
+        print("Here are all past trades instead.")
+        all_trades()
         num_of_trades()
 
     line_break()

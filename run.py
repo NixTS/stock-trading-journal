@@ -15,11 +15,11 @@ def main():
     Prints a message to the UI to select options.
     """
     line_break()
-    print("Welcome to your Stock Trading Journal!\n")
-    print("Please press one of the following buttons on your keyboard to continue:\n")
-    print("'1' to input your stock trading data.")
-    print("'2' to display your journal entries.")
-    print("'3' to display your trading statistics.\n")
+    print("Welcome to your Stock Trading Journal!\n\n")
+    print("Please press one of the following buttons to continue:\n")
+    print("'1' to input stock trading data.")
+    print("'2' to display journal entries.")
+    print("'3' to display trading statistics.\n")
     print("'ESC' to exit the program.")
 
 

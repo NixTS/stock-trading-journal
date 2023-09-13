@@ -21,12 +21,12 @@ def main():
     Welcome message and shows the current date
     """
     line_break()
-    print("Trading journal input\n\n")
-    print("Here you can input a new entry to your trading journal.\n")
-    print("Please press one of the following buttons on your keyboard to continue:\n")
+    print("Trading Journal Input\n\n")
+    print("Submit a new entry into your trading journal.\n")
+    print("Please press one of the following buttons to continue:\n")
     print(f"'1' if you want to use the current date: {datetoday}.")
     print("'2' if you want to enter a date manually.\n")
-    print("'ESC' if you want to return to the main menu.")
+    print("'ESC' to exit the program.")
 
 
 def handle_input_date():

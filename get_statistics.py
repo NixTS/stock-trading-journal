@@ -14,13 +14,13 @@ def main():
     Welcome message and navigation overview
     """
     line_break()
-    print("Trading statistics\n\n")
-    print("If you want to get statistics for your trades, please follow the instructions given to you.\n")
+    print("Trading Statistics\n\n")
+    print("Display your trading statistics.\n")
+    print("Please press one of the following buttons to continue:\n")
     print("Press '1' on your keyboard to enter a number.")
-    print("Or:")
     print("Press '2', if you want to get todays trades.")
-    print("Or:")
     print("Press '3', if you want to get all your past trades.\n")
+    print("'ESC' to exit the program.")
 
 
 def handle_input_statistics():
@@ -45,9 +45,7 @@ def handle_input_statistics():
                         all_trades_statistic()
                     elif choice == 'esc':
                         close_script()
-                    else:
-                        line_break()
-                        print("Invalid format, please enter '1' or '2' or '3'.")
+
 
 
 def past_num_trades_statistic():
