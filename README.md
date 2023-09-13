@@ -12,7 +12,48 @@ The project's primary goal is to maintain a minimalist and straightforward termi
 
 ### **First Time Users Goals**
 
++ As a first time User, I want to easily navigate my Stock Trading Journal.
++ As a first time User, I want to learn the interface very quick.
++ As a first time User, I want to see my past trades.
+
 ### **Frequent User Goals**
+
++ As a frequent User, I want to see todays and all my past trades.
++ As a frequent User, I want to see my trading statistics.
++ As a frequent User, I want to be as efficient as possible when using the app.
+
+### **All User goals**
+
++ As a User, I want to input stock trading data without the danger of pushing incorrect data.
++ As a User, I want to access this app from anywhere.
++ As a User, I dont want the app to use a lot of rescources from my machine.
+
+### **Fulfillment**
+
+The terminal-based app is controlled with direct keyboard input with input validation, no incorrect data can be put in.
+> As a first time User, I want to easily navigate my Stock Trading Journal.
+> As a first time User, I want to learn the interface very quick.
+
+A user-configurable feature has been added, enabling users to specify a desired number of past trades for viewing.
+> As a first time User, I want to see my past trades.
+
+A feature has been added, allowing Users to see all their past trades.
+> As a frequent User, I want to see todays and all my past trades.
+
+The option to display a certain number of trades, todays or all time trades statistic is implemented. Showing number of trades, profit/loss, number of long/short, number of winning/losing trades and win-loss-ratio.
+> As a frequent User, I want to see my trading statistics.
+
+The Terminal based app with direct keyboard input and input validation allows lightning fast controll over the app without having the danger of putting in incorrect data.
+> As a frequent User, I want to be as efficient as possible when using the app.
+
+> As a User, I want to input stock trading data without the danger of pushing incorrect data.
+
+This app is deployed to a cloud based service and connected to a google sheet on the google cloud, allowing access from anywhere in the world.
+> As a User, I want to access this app from anywhere.
+
+As a cloud-based application featuring a terminal interface, this software 
+uses minimal resource, making it exceptionally resource-efficient.
+> As a User, I dont want the app to use a lot of rescources from my machine.
 
 ## **Structure**
 
