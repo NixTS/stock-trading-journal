@@ -4,6 +4,8 @@ Live Website: [Stock Trading Journal - Not Yet Deployed](https://nixts)
 
 The Stock Trading Journal is a Python application designed to help daytraders manage and analyze their stock trading activities. This terminal-based app integrates with Google Sheets, allowing users to input trading data, view their past trades, and access statistics.
 
+![lucid chart](media/readme-images/lucid-chart.jpeg)
+
 ## **Project Goals**
 
 The project's primary goal is to maintain a minimalist and straightforward terminal-based design. It prioritizes simplicity and efficiency in user interactions. This design philosophy ensures that users can quickly and intuitively enter their stock trading data without any unnecessary complexity. Input validation mechanisms are implemented to guarantee data accuracy, minimizing errors and ensuring the integrity of the trading records. Unnecessary elements or features that could clutter the interface are intentionally omitted, keeping the user experience focused and efficient. The ultimate aim is to provide traders with a clean, distraction-free tool that simplifies data management, fostering a seamless and hassle-free experience for users.
