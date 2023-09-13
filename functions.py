@@ -2,10 +2,6 @@ import sys
 import time
 from colorama import Fore, init
 
-
-allowed_keys = ('1')
-
-
 init(autoreset=True)
 
 
@@ -34,20 +30,21 @@ def back_to_menu():
     Asks for input of 1 to return to the scripts menu
     Adds print and time.sleep statements
     """
-    print("Press '1' to return to the menu.")
+    allowed_keys = ('1')
+    
     while True:
-        event = keyboard.read_event(suppress=True)
-        if event.event_type == keyboard.KEY_UP:
-            choice = event.name
+        choice = input("Enter '1' to get back to menu: \n")
 
-            if choice in allowed_keys:
-                if choice == '1':
-                    line_break()
-                    print("Returning to menu . . .\n")
-                    time.sleep(2)
-                    print("Restarting process . . .\n")
-                    print("This takes only 3 seconds . . .")
-                    time.sleep(3)
-                    break
-                else:
-                    break
+        if choice in allowed_keys:
+            if choice == '1':
+                line_break()
+                print("Returning to menu . . .\n")
+                time.sleep(2)
+                print("Restarting process . . .\n")
+                print("This takes only 3 seconds . . .")
+                time.sleep(3)
+                break
+            else:
+                print(Fore.RED + "Critical Error detected!")
+                print(Fore.RED + "Closing program!")
+                sys.exit(0)
