@@ -324,7 +324,7 @@ def push_input_to_sheet():
                     print("Restarting process . . .\n")
                     print("This takes only 5 seconds . . .")
                     time.sleep(5)
-                    main()
+                    handle_input_date()
                     break
 
 
@@ -337,7 +337,7 @@ def sort_sheet_by_date():
     headers = data[0]
     stock_data.sort((headers.index("Date") + 1, 'asc'))
     time.sleep(5)
-    main()
+    handle_input_date()
 
 
 if __name__ == "__main__":

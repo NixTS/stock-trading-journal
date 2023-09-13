@@ -102,7 +102,7 @@ def num_of_trades():
         )
         print("\n")
     back_to_menu()
-    main()
+    handle_input_past_trades()
 
 
 def todays_trades():
@@ -126,7 +126,7 @@ def todays_trades():
     print(tabulate(filtered_rows, headers, tablefmt="github", floatfmt=".2f"))
     print("\n")
     back_to_menu()
-    main()
+    handle_input_past_trades()
 
 
 def all_trades():
@@ -146,7 +146,7 @@ def all_trades():
     print(tabulate(all_rows, headers, tablefmt="github", floatfmt=".2f"))
     print("\n")
     back_to_menu()
-    main()
+    handle_input_past_trades()
 
 
 if __name__ == "__main__":

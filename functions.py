@@ -47,8 +47,8 @@ def back_to_menu():
                     print("Returning to menu . . .\n")
                     time.sleep(2)
                     print("Restarting process . . .\n")
-                    print("This takes only 5 seconds . . .")
-                    time.sleep(5)
+                    print("This takes only 3 seconds . . .")
+                    time.sleep(3)
                     break
                 else:
                     break
