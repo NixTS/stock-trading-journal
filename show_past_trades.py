@@ -8,9 +8,8 @@ from functions import line_break, close_script, back_to_menu
 from sheet_data import *
 
 
-
-allowed_keys = {'1', '2','3', 'esc'}
-init(autoreset = True)
+allowed_keys = {'1', '2', '3', 'esc'}
+init(autoreset=True)
 
 
 def main():
@@ -82,18 +81,24 @@ def num_of_trades():
 
     if num_of_past_trades > total_rows_with_data:
         line_break()
-        print(Fore.RED + f"Requested {num_of_past_trades} rows, but there are only {total_rows_with_data} rows with data.\n")
+        print(Fore.RED + f"Requested {num_of_past_trades} rows," +
+              "but there are only {total_rows_with_data} rows with data.\n")
         print(Fore.RED + "Here are all past trades instead.")
         all_trades()
         num_of_trades()
 
     line_break()
     headers = stock_data.row_values(1)
-    last_n_rows = [row for row in reversed(data[1:]) if any(row)][:num_of_past_trades]
+    last_n_rows = [
+        row for row in reversed(data[1:])
+        if any(row)
+        ][:num_of_past_trades]
 
     print(f"Your past {num_of_past_trades} trades:\n")
     if num_of_past_trades <= total_rows_with_data:
-        print(tabulate(last_n_rows, headers, tablefmt="github", floatfmt=".2f"))
+        print(
+            tabulate(last_n_rows, headers, tablefmt="github", floatfmt=".2f")
+        )
         print("\n")
     back_to_menu()
     main()
@@ -105,12 +110,14 @@ def todays_trades():
     """
     today_date_str = datetime.now().strftime('%d.%m.%Y')
 
-    filtered_rows = [row for row in data if any(row) and row[0] == today_date_str]
+    filtered_rows = [
+        row for row in data if any(row) and row[0] == today_date_str
+    ]
 
     if not filtered_rows:
         print(Fore.RED + "No trades with today's date found.")
         return
-    
+
     line_break()
     headers = stock_data.row_values(1)
 
@@ -144,3 +151,4 @@ def all_trades():
 if __name__ == "__main__":
     main()
     handle_input_past_trades()
+    
