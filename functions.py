@@ -7,7 +7,7 @@ from colorama import Fore, init
 allowed_keys = ('1')
 
 
-init(autoreset = True)
+init(autoreset=True)
 
 
 def line_break():
@@ -33,11 +33,11 @@ def close_script():
 def back_to_menu():
     """
     Asks for input of 1 to return to the scripts menu
-    Adds print and time.sleep statements 
+    Adds print and time.sleep statements
     """
     print("Press '1' to return to the menu.")
     while True:
-        event = keyboard.read_event(suppress = True)
+        event = keyboard.read_event(suppress=True)
         if event.event_type == keyboard.KEY_UP:
             choice = event.name
 
