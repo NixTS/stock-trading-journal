@@ -78,6 +78,40 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 ### **Input**
 
++ Inputs can only be made with the keyboard.
++ Input is validated wherever an input can be made, so that it fits the google sheet.
++ Input validation testing can be seen in the testing section.
++ Example images of input and input validation can be seen here.
+
+**Input for dates**
++ Input validation only accepts todays or a past date and only a specific format.  
+
+![date wrong input](media/readme-images/enter-date-wrong-input.jpg)
+
+![date correct input](media/readme-images/enter-date-correct-input.jpg)
+
+**Input for Stock Ticker Symbol**
++ Input only accepts 1 - 4  letters.
++ Letters will be converted to uppercase after input.  
+
+![stcok ticker wrong input](media/readme-images/stock-ticker-wrong-input.jpg)
+
+![stock ticker correct input](media/readme-images/stock-ticker-correct-input.jpg)
+
+**Input for Shares Amount**
++ Input only accepts positive numbers.  
+
+![shares amount wrong input](media/readme-images/shares-amount-wrong-input.jpg)
+
+![shares amount correct input](media/readme-images/shares-amount-correct-input.jpg)
+
+**Input Prices**
++ Input only accepts numbers with 2 decimals for both entry and exit price.
+
+![entry and exit price wrong input](media/readme-images/entry-exit-price-wrong-input.jpg)
+
+![entry and exit price correct input](media/readme-images/entry-exit-price-correct-input.jpg)
+
 ## **Features**
 
 ### **Existing Features**
