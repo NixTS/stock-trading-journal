@@ -1,6 +1,5 @@
-from pynput import keyboard
-from colorama import Fore, init
-
+import keyboard
+from colorama import Fore, Back, init
 from input_stock_data import handle_input_date
 from show_past_trades import handle_input_past_trades
 from get_statistics import handle_input_statistics
@@ -8,8 +7,7 @@ from functions import line_break, close_script
 from sheet_data import *
 
 allowed_keys = {'1', '2', '3', 'esc'}
-init(autoreset=True)
-
+init(autoreset = True)
 
 def main():
     """
@@ -25,35 +23,28 @@ def main():
     print(Fore.RED + "'ESC' to exit the program.")
 
 
-def on_key_release(key):
-    """
-    Handles key releases to navigate the menu.
-    1: Input stock trading data to the journal
-    2: Display trading journal
-    3: Display trading statistics
-    ESC: Exit the program
-    """
-    try:
-        key_str = key.char
-        if key_str in allowed_keys:
-            if key_str == '1':
-                handle_input_date()
-            elif key_str == '2':
-                handle_input_past_trades()
-            elif key_str == '3':
-                handle_input_statistics()
-            elif key_str == 'esc':
-                close_script()
-    except AttributeError:
-        pass
-
-
 def handle_input():
     """
-    Create a keyboard listener to handle key releases.
+    Handles key presses to navigate menu
+    1: Input stock trading data to journal
+    2: Display trading journal
+    3: Display trading statistics 
+    ESC: to exit the program; using quit()
     """
-    with keyboard.Listener(on_release=on_key_release) as listener:
-        listener.join()
+    while True:
+        event = keyboard.read_event(suppress=True)
+        if event.event_type == keyboard.KEY_UP:
+            choice = event.name
+
+            if choice in allowed_keys:
+                if choice == '1':
+                    handle_input_date()
+                elif choice == '2':
+                    handle_input_past_trades()
+                elif choice == '3':
+                    handle_input_statistics()
+                elif choice == 'esc':
+                    close_script()
 
 
 if __name__ == "__main__":
