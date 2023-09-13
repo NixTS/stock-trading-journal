@@ -85,7 +85,7 @@ def num_of_trades():
 
     print(f"Your past {num_of_past_trades} trades:\n")
     if num_of_past_trades <= total_rows_with_data:
-        print(tabulate(last_n_rows, headers, tablefmt="github"))
+        print(tabulate(last_n_rows, headers, tablefmt="github", floatfmt=".2f"))
         print("\n")
     back_to_menu()
     main()
@@ -107,7 +107,7 @@ def todays_trades():
     headers = stock_data.row_values(1)
 
     print("All trades with todays date:\n")
-    print(tabulate(filtered_rows, headers, tablefmt="github"))
+    print(tabulate(filtered_rows, headers, tablefmt="github", floatfmt=".2f"))
     print("\n")
     back_to_menu()
     main()
@@ -127,7 +127,7 @@ def all_trades():
     print("All your past trades:\n")
     print("This may take a while . . .\n")
     time.sleep(2)
-    print(tabulate(all_rows, headers, tablefmt="github"))
+    print(tabulate(all_rows, headers, tablefmt="github", floatfmt=".2f"))
     print("\n")
     back_to_menu()
     main()
