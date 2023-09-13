@@ -63,7 +63,7 @@ def num_of_trades():
     """
     line_break()
     print("Display your past trades.\n")
-    num_of_past_trades = input("Number of past trades:\n")
+    num_of_past_trades = input("Number of past trades: \n")
 
     try:
         num_of_past_trades = int(num_of_past_trades)
@@ -82,7 +82,7 @@ def num_of_trades():
     if num_of_past_trades > total_rows_with_data:
         line_break()
         print(Fore.RED + f"Requested {num_of_past_trades} rows," +
-              "but there are only {total_rows_with_data} rows with data.\n")
+              " but there are only {total_rows_with_data} rows with data.\n")
         print(Fore.RED + "Here are all past trades instead.")
         all_trades()
         num_of_trades()
@@ -151,4 +151,3 @@ def all_trades():
 if __name__ == "__main__":
     main()
     handle_input_past_trades()
-    

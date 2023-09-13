@@ -66,7 +66,7 @@ def input_date_today():
     """
     line_break()
     print(Fore.GREEN + f"The current date '{datetoday}'" +
-          "will be parsed to your journal.")
+          " will be parsed to your journal.")
 
     trading_journal_entry.append(datetoday)
     input_ticker()
@@ -80,7 +80,7 @@ def input_date_manually():
     """
     line_break()
     print("Please enter a date manually 'DD.MM.YYYY'.\n")
-    date_str = input("Date:\n")
+    date_str = input("Date: \n")
 
     try:
         parsed_date = datetime.strptime(date_str, "%d.%m.%Y").date()
@@ -89,18 +89,18 @@ def input_date_manually():
         if parsed_date <= today:
             line_break()
             print(Fore.GREEN + f"Your input '{date_str}'" +
-                  "will be parsed to your journal.")
+                  " will be parsed to your journal.")
             trading_journal_entry.append(parsed_date)
             input_ticker()
         else:
             line_break()
             print(Fore.RED + "Invalid date." +
-                  "Please enter a date from today or the past.")
+                  " Please enter a date from today or the past.")
             input_date_manually()
     except ValueError:
         line_break()
         print(Fore.RED + "Invalid date format." +
-              "Please use DD.MM.YYYY format.")
+              " Please use DD.MM.YYYY format.")
         input_date_manually()
 
 
@@ -116,19 +116,19 @@ def input_ticker():
         print("Please enter the stock ticker symbol.\n")
         print("Input restricted to 1 - 4 letters.")
         print("Input will be converted to uppercase automatically.\n")
-        ticker = input("Ticker Symbol:\n")
+        ticker = input("Ticker Symbol: \n")
 
         if re.match(r"^[a-zA-Z]{1,4}$", ticker):
             trading_journal_entry.append(ticker.upper())
             line_break()
             print(Fore.GREEN + f"Your input ticker symbol {ticker.upper()}" +
-                  "will be parsed to your journal.")
+                  " will be parsed to your journal.")
             input_shares_amount()
             break
         else:
             line_break()
             print(Fore.RED + "Invalid input." +
-                  "Please enter 1 to 4 letters.")
+                  " Please enter 1 to 4 letters.")
 
 
 def input_shares_amount():
@@ -141,13 +141,13 @@ def input_shares_amount():
         line_break()
         print("Please enter the amount of shares traded.\n")
         print("Input restricted to numbers.\n")
-        shares_amount = input("Shares amount traded:\n")
+        shares_amount = input("Shares amount traded: \n")
 
         if re.match(r"^([\s\d]+)$", shares_amount):
             trading_journal_entry.append(shares_amount)
             line_break()
             print(Fore.GREEN + f"Your input of {shares_amount} shares" +
-                  "will be parsed to your journal.")
+                  " will be parsed to your journal.")
             input_direction()
             break
         else:
@@ -180,8 +180,8 @@ def input_direction():
                     direction_output = "Long"
                     line_break()
                     print(Fore.GREEN + f"Your trade direction of" +
-                          "{str(direction_output)}" +
-                          "will be parsed to your journal.")
+                          " {str(direction_output)}" +
+                          " will be parsed to your journal.")
                     input_prices()
                     break
                 elif choice == "s":
@@ -189,8 +189,8 @@ def input_direction():
                     direction_output = "Short"
                     line_break()
                     print(Fore.GREEN + f"Your trade direction of" +
-                          "{str(direction_output)}" +
-                          "will be parsed to your journal.")
+                          " {str(direction_output)}" +
+                          " will be parsed to your journal.")
                     input_prices()
                     break
 
@@ -213,7 +213,7 @@ def input_prices():
         print("Enter the entry price first.\n")
         print("Input is restricted to numbers only.\n")
         print("For Example: 6.45, 12.00, 293.20")
-        entry_price = input("Entry price:\n")
+        entry_price = input("Entry price: \n")
 
         if re.match(r"^\d+\.\d{2}$", entry_price):
             prices.append(entry_price)
@@ -221,11 +221,11 @@ def input_prices():
         else:
             line_break()
             print(Fore.RED + "Invalid input." +
-                  "Please enter a number with exactly two decimals.")
+                  " Please enter a number with exactly two decimals.")
             print(Fore.RED + "for example: 6.45, 12.00, 293.20")
 
     while True:
-        exit_price = input("Exit price:\n")
+        exit_price = input("Exit price: \n")
 
         if re.match(r"^\d+\.\d{2}$", exit_price):
             prices.append(exit_price)
@@ -233,12 +233,12 @@ def input_prices():
         else:
             line_break()
             print(Fore.RED + "Invalid input." +
-                  "Please enter a number with exactly two decimals.")
+                  " Please enter a number with exactly two decimals.")
             print(Fore.RED + "for example: 6.45, 12.00, 293.20")
 
     line_break()
     print(Fore.GREEN + f"Your input of entry price $ {entry_price}" +
-          "and exit price $ {exit_price} will be parsed to your journal.")
+          " and exit price $ {exit_price} will be parsed to your journal.")
     trading_journal_entry.extend(prices)
     show_input()
 
@@ -306,7 +306,7 @@ def push_input_to_sheet():
                     stock_data.append_row(trading_journal_entry)
                     time.sleep(2)
                     print(Fore.GREEN + "Push successful!" +
-                          "Your entry is stored in your trading journal!\n")
+                          " Your entry is stored in your trading journal!\n")
                     line_break()
                     time.sleep(2)
                     print("Restarting process . . .\n")
@@ -316,7 +316,7 @@ def push_input_to_sheet():
                 elif choice == 'n':
                     line_break()
                     print(Fore.RED + "Push declined!" +
-                          "Your entry will be deleted!\n")
+                          " Your entry will be deleted!\n")
                     line_break()
                     time.sleep(2)
                     print("Restarting process . . .\n")

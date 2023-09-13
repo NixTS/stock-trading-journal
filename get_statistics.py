@@ -60,7 +60,7 @@ def past_num_trades_statistic():
     """
     line_break()
     print("Display your past trades statistic.\n")
-    num_of_past_trades = input("Number of past trades:\n")
+    num_of_past_trades = input("Number of past trades: \n")
     total_rows_with_data = sum(
         1 for i, row in enumerate(data)
         if any(row) and i != 0
@@ -96,7 +96,7 @@ def past_num_trades_statistic():
     if num_of_past_trades > total_rows_with_data:
         line_break()
         print(Fore.RED + f"Requested {num_of_past_trades} rows," +
-              "but there are only {total_rows_with_data} rows with data.\n")
+              " but there are only {total_rows_with_data} rows with data.\n")
         print(Fore.RED + "Here are all past trades statistics instead.")
         all_trades_statistic()
         return
@@ -145,7 +145,7 @@ def todays_num_trades_statistic():
     line_break()
     print("Todays trades statistic:\n")
     print(f"Requested today's trades profit or loss" +
-          "amount to ${total_profit_loss:.2f}\n")
+          " amount to ${total_profit_loss:.2f}\n")
     print(f"Total number of trades: {total_trades}")
     print(f"Number of 'Short' trades: {short_trades}")
     print(f"Number of 'Long' trades: {long_trades}")
@@ -177,7 +177,7 @@ def all_trades_statistic():
     line_break()
     print("All trades statistic:\n")
     print(f"Requested all trades profit or loss" +
-          "amount to ${total_profit_loss:.2f}\n")
+          " amount to ${total_profit_loss:.2f}\n")
     print(f"Total number of trades: {total_trades}")
     print(f"Number of 'Short' trades: {short_trades}")
     print(f"Number of 'Long' trades: {long_trades}")
