@@ -59,6 +59,23 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 ### **Navigation**
 
++ After starting the Stock Trading Journal the user will be greeted by a short welcoming message.
++ Options are given to navigate the app by pressing buttons on the keyboard with direct input.
++ Each option has a short description of where this navigation leads to.
++ An option to close the application by pressing the ESC button in the main menues.
+
+**Starting Screen**  
+![starting screen](media/readme-images/starting-screen.jpg)
+
+**Input Stock Trading Data**  
+![input stock trading data](media/readme-images/trading-journal-input.jpg)
+
+**Display Journal Entries**  
+![display journal entries](media/readme-images/trading-journal.jpg)
+
+**Display Trading Statistics**  
+![display trading statistics](media/readme-images/trading-statistics.jpg)
+
 ### **Input**
 
 ## **Features**
