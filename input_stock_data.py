@@ -283,6 +283,7 @@ def push_input_to_sheet():
                     stock_data.append_row(trading_journal_entry)
                     time.sleep(2)
                     print(Fore.GREEN + "Push successful! Your entry is now stored in your trading journal!\n")
+                    line_break()
                     time.sleep(2)
                     print("Restarting process . . .\n")
                     print("This takes only 5 seconds . . .")
@@ -291,6 +292,7 @@ def push_input_to_sheet():
                 elif choice == 'n':
                     line_break()
                     print(Fore.RED + "Push declined! Your entry will be deleted!\n")
+                    line_break()
                     time.sleep(2)
                     print("Restarting process . . .\n")
                     print("This takes only 5 seconds . . .")
