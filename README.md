@@ -32,7 +32,7 @@ The project's primary goal is to maintain a minimalist and straightforward termi
 
 ### **Fulfillment**
 
-The terminal-based app is controlled with direct keyboard input with input validation, no incorrect data can be put in.
+The terminal-based app is controlled with keyboard input with input validation, no incorrect data can be put in.
 > As a first time User, I want to easily navigate my Stock Trading Journal.
 > As a first time User, I want to learn the interface very quick.
 
@@ -45,7 +45,7 @@ A feature has been added, allowing Users to see all their past trades.
 The option to display a certain number of trades, todays or all time trades statistic is implemented. Showing number of trades, profit/loss, number of long/short, number of winning/losing trades and win-loss-ratio.
 > As a frequent User, I want to see my trading statistics.
 
-The Terminal based app with direct keyboard input and input validation allows lightning fast controll over the app without having the danger of putting in incorrect data.
+The Terminal based app with keyboard input and input validation allows lightning fast control over the app without having the danger of putting in incorrect data.
 > As a frequent User, I want to be as efficient as possible when using the app.
 
 > As a User, I want to input stock trading data without the danger of pushing incorrect data.
@@ -135,6 +135,56 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 ![entry is incorrect](media/readme-images/enter-data-is-incorrect.jpg)
 
+### **Display Trading Journal**
+
++ Three options given to display trading journal
+    1. Entering a specific number of past trade to be displayed
+    2. Displaying trades that match the current date
+    3. Displaying all trades
+
+**1.** **Entering a specific number of past trades**
+
++ Users have the option to input a specific number to request the display of a corresponding amount of past trades.
+
+![number of past trades](media/readme-images/journal-enter-number.jpg)
+
+**2.** **Display Todays Trades**
+
++ User have the option to display trades, that match the current date.
+
+![todays trades](media/readme-images/journal-todays-trades.jpg)
+
+**3.** **Display All Trades**
+
++ Furthermore, users have the capability to display all trades stored within the journal. 
+
+![all trades](media/readme-images/journal-all-trades.jpg)
+
+### **Display Trading Statistic**
+
++ Three options given to display trading statistics
+    1. Entering a specific number of past trades statistics to be displayed
+    2. Displaying trades statistics that match the current date
+    3. Displaying all trades statistics
+
+**1.** **Entering a specific Number of Past Trades Statistics**
+
++ Users have the option to input a specific number to request the display of a corresponding amount of past trades.
+
+![number of past trades](media/readme-images/statistics-num-of-trades.jpg)
+
+**2.** **Display Todays Trades Statistics**
+
++ User have the option to display trades, that match the current date.
+
+![todays trades](media/readme-images/statistic-todays-trades.jpg)
+
+**3.** **Display All Trades Statistics**
+
++ Furthermore, users have the capability to display all trades stored within the journal. 
+
+![all trades](media/readme-images/statistics-all-trades.jpg)
+
 ## **Features**
 
 ### **Existing Features**
@@ -146,7 +196,7 @@ uses minimal resource, making it exceptionally resource-efficient.
 + Asks to return to menu on button press '1'
 
 **Inputs**
-+ This program uses direct keyboard input for quick navigation
++ This program uses keyboard inputs for quick navigation
 + Data input to fill out a google sheet
 + Input validation for input fields to minimize incorrect data entries
 
@@ -171,6 +221,9 @@ uses minimal resource, making it exceptionally resource-efficient.
 + A delete past trades function will be implemented in the future.
 > Due to very strict input validation, a delete past trades is not necessary yet.
 
++ Return to main menu function.
+> Due to the relatively small scope of this program, a return to the main menu function was deemed  as unneccessary.
+
 ## **Technologies**
 
 ### **Language**
@@ -182,8 +235,6 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 + [Colorama](https://pypi.org/project/colorama/)
     - Used to color terminal text
-+ [Keyboard](https://pypi.org/project/keyboard/)
-    - Used for direct keyboard inputs
 + [Tabulate](https://pypi.org/project/tabulate/)
     - Used to create tables in the terminal
 + [GSpread](https://docs.gspread.org/en/v5.10.0/)
@@ -220,9 +271,9 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 ### **Input Validation**
 
-In this program, there are various methods for inputting data:
+In this program are various methods for inputting data:
 
-+ Using keyboard keys for menu navigation.
++ Using keyboard input for menu navigation.
 + Utilizing keyboard keys in scenarios where there are two or more predefined options.
 + Entering numerical values or sequences of letters when creating journal entries.
 
