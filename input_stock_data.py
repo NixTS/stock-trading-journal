@@ -86,7 +86,8 @@ def input_date_manually():
             line_break()
             print(Fore.GREEN + f"Your input '{date_str}'" +
                   " will be parsed to your journal.")
-            trading_journal_entry.append(parsed_date)
+            parsed_date_str = parsed_date.strftime("%d.%m.%Y")
+            trading_journal_entry.append(parsed_date_str)
             input_ticker()
         else:
             line_break()
@@ -301,7 +302,10 @@ def push_input_to_sheet():
                 line_break()
                 print(Fore.GREEN + "Pushing to journal . . .\n")
                 stock_data = SHEET.worksheet('stock_data')
-                stock_data.append_row(trading_journal_entry)
+                try:
+                    stock_data.append_row(trading_journal_entry)
+                except Exception as e:
+                    print(f"An error occurred while appending rows to the worksheet: {e}")
                 time.sleep(2)
                 print(Fore.GREEN + "Push successful!" +
                       " Your entry is stored in your trading journal!\n")
