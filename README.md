@@ -78,17 +78,18 @@ uses minimal resource, making it exceptionally resource-efficient.
 **Display Trading Statistics**  
 ![display trading statistics](media/readme-images/trading-statistics.jpg)
 
-### **Input**
+### **Trading Journal Input**
 
 + Inputs can only be made with the keyboard.
 + Input is validated wherever an input can be made, so that it fits the google sheet.
 + Input validation testing can be seen in the testing section.
-+ Example images of input and input validation can be seen here.
 
 **Input for dates**
-+ Input validation only accepts todays or a past date and only a specific format.  
++ First, the user can decide if they want to push the current date or enter a date manually.
 
-![date wrong input](media/readme-images/enter-date-wrong-input.jpg)
+![enter date option](media/readme-images/trading-journal-input.jpg)
+
++ When users opt to manually enter a date, the program enforces a specific date format to ensure data consistency. Upon successful entry in the correct format, a green-colored confirmation message will be displayed, indicating that the date input was successful.
 
 ![date correct input](media/readme-images/enter-date-correct-input.jpg)
 
@@ -96,21 +97,15 @@ uses minimal resource, making it exceptionally resource-efficient.
 + Input only accepts 1 - 4  letters.
 + Letters will be converted to uppercase after input.  
 
-![stcok ticker wrong input](media/readme-images/stock-ticker-wrong-input.jpg)
-
 ![stock ticker correct input](media/readme-images/stock-ticker-correct-input.jpg)
 
 **Input for Shares Amount**
 + Input only accepts positive numbers.  
 
-![shares amount wrong input](media/readme-images/shares-amount-wrong-input.jpg)
-
 ![shares amount correct input](media/readme-images/shares-amount-correct-input.jpg)
 
 **Input Prices**
 + Input only accepts numbers with 2 decimals for both entry and exit price.  
-
-![entry and exit price wrong input](media/readme-images/entry-exit-price-wrong-input.jpg)
 
 ![entry and exit price correct input](media/readme-images/entry-exit-price-correct-input.jpg)
 
