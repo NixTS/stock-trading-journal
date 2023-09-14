@@ -22,8 +22,8 @@ def main():
     """
     line_break()
     print(Fore.YELLOW + "Trading Journal Input\n\n")
-    print("Submit a new entry into your trading journal.\n")
-    print("Please press one of the following buttons to continue:\n")
+    print("Submit a new entry to your trading journal.\n")
+    print("Please enter one of the following options to continue:\n")
     print(f"'1' to use the current date: {datetoday}.")
     print("'2' to enter a date manually.\n")
 
@@ -41,7 +41,7 @@ def handle_input_date():
     trading_journal_entry.clear()
 
     while True:
-        choice = input("Enter Navigation: \n").lower()
+        choice = input("Enter Option: \n").lower()
 
         if choice in allowed_keys:
             if choice == '1':
@@ -51,7 +51,7 @@ def handle_input_date():
         else:
             line_break()
             print(Fore.RED + "Please enter a valid choice.")
-            print(Fore.RED + "1, 2 or 3")
+            print(Fore.RED + "1 or 2")
             main()
 
 
@@ -188,7 +188,7 @@ def input_direction():
                 input_prices()
         else:
             line_break()
-            print(Fore.RED + "Please enter a valid choice.")
+            print(Fore.RED + "Please enter a valid option.")
             print(Fore.RED + "'l' or 's'")
             line_break()
 
@@ -208,8 +208,7 @@ def input_prices():
     while True:
         line_break()
         print("Please enter the entry and exit prices of your trade.\n")
-        print("Enter the entry price first.\n")
-        print("Input is restricted to numbers only.\n")
+        print("Input is restricted to numbers with 2 decimals only.\n")
         print("For Example: 6.45, 12.00, 293.20")
         entry_price = input("Entry price: \n")
 
@@ -292,10 +291,10 @@ def push_input_to_sheet():
     If data in table is correct, data will be pushed to sheet, process repeats.
     If not, process repeats.
     """
-    print("If this is correct, press 'Y', if you want to restart press 'N'.")
+    print("If this is correct, enter 'Y', if you want to restart enter 'N'.")
     allowed_keys = ('y', 'n')
     while True:
-        choice = input("Enter if data correct: \n").lower()
+        choice = input("Enter if data is correct: \n").lower()
 
         if choice in allowed_keys:
             if choice == 'y':
@@ -305,7 +304,8 @@ def push_input_to_sheet():
                 try:
                     stock_data.append_row(trading_journal_entry)
                 except Exception as e:
-                    print(f"An error occurred while appending rows to the worksheet: {e}")
+                    print(f"An error occurred while" +
+                          "appending rows to the worksheet: {e}")
                 time.sleep(2)
                 print(Fore.GREEN + "Push successful!" +
                       " Your entry is stored in your trading journal!\n")
@@ -314,6 +314,7 @@ def push_input_to_sheet():
                 print("Restarting process . . .\n")
                 print("This takes only 5 seconds . . .")
                 sort_sheet_by_date()
+                time.sleep(5)
             elif choice == 'n':
                 line_break()
                 print(Fore.RED + "Push declined!" +
@@ -321,8 +322,7 @@ def push_input_to_sheet():
                 line_break()
                 time.sleep(2)
                 print("Restarting process . . .\n")
-                print("This takes only 5 seconds . . .")
-                time.sleep(5)
+                time.sleep(2)
                 handle_input_date()
         else:
             line_break()
@@ -339,7 +339,6 @@ def sort_sheet_by_date():
     """
     headers = data[0]
     stock_data.sort((headers.index("Date") + 1, 'asc'))
-    time.sleep(5)
     handle_input_date()
 
 

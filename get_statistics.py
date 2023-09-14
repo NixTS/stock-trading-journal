@@ -14,8 +14,8 @@ def main():
     line_break()
     print(Fore.YELLOW + "Trading Statistics\n\n")
     print("Display your trading statistics.\n")
-    print("Please press one of the following buttons to continue:\n")
-    print("'1' to enter a number of past trades.")
+    print("Please enter one of the following options to continue:\n")
+    print("'1' to display a number of past trades.")
     print("'2' to display todays trades.")
     print("'3' to display all past trades.\n")
 
@@ -44,7 +44,7 @@ def handle_input_statistics():
                 all_trades_statistic()
         else:
             line_break()
-            print(Fore.RED + "Please enter a valid choice.")
+            print(Fore.RED + "Please enter a valid option.")
             print(Fore.RED + "1, 2 or 3")
             main()
 

@@ -15,7 +15,7 @@ def main():
     """
     line_break()
     print(Fore.YELLOW + "Welcome to your Stock Trading Journal!\n\n")
-    print("Please press one of the following buttons to continue:\n")
+    print("Please enter one of the following options to continue:\n")
     print("'1' to input stock trading data.")
     print("'2' to display journal entries.")
     print("'3' to display trading statistics.\n")
@@ -26,7 +26,7 @@ def handle_input():
     Handles key presses to navigate menu
     1: Input stock trading data to journal
     2: Display trading journal
-    3: Display trading statistics 
+    3: Display trading statistics
     """
     allowed_keys = {'1', '2', '3'}
 
@@ -42,7 +42,7 @@ def handle_input():
                 handle_input_statistics()
         else:
             line_break()
-            print(Fore.RED + "Please enter a valid choice.")
+            print(Fore.RED + "Please enter a valid option.")
             print(Fore.RED + "1, 2 or 3")
             main()
 

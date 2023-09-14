@@ -16,8 +16,8 @@ def main():
     line_break()
     print(Fore.YELLOW + "Trading Journal\n\n")
     print("Display your past Trades.\n")
-    print("Please press one of the following buttons to continue:\n")
-    print("'1' to enter a number of past trades.")
+    print("Please enter one of the following options to continue:\n")
+    print("'1' to display a number of past trades.")
     print("'2' to display todays trades.")
     print("'3' to display all past trades.\n")
 
@@ -35,7 +35,7 @@ def handle_input_past_trades():
     allowed_keys = {'1', '2', '3'}
 
     while True:
-        choice = input("Enter Navigation: \n").lower()
+        choice = input("Enter Option: \n").lower()
 
         if choice in allowed_keys:
             if choice == '1':
@@ -46,7 +46,7 @@ def handle_input_past_trades():
                 all_trades()
         else:
             line_break()
-            print(Fore.RED + "Please enter a valid choice.")
+            print(Fore.RED + "Please enter a valid option.")
             print(Fore.RED + "1, 2 or 3")
             main()
 
@@ -78,8 +78,8 @@ def num_of_trades():
     if num_of_past_trades > total_rows_with_data:
         line_break()
         print(Fore.RED + f"Requested {num_of_past_trades} rows," +
-            f" but there are only {total_rows_with_data}" +
-            " rows with data.\n")
+              f" but there are only {total_rows_with_data}" +
+              " rows with data.\n")
         print(Fore.RED + "Here are all past trades instead.")
         all_trades()
 

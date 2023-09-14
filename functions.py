@@ -31,7 +31,7 @@ def back_to_menu():
     Adds print and time.sleep statements
     """
     allowed_keys = ('1')
-    
+
     while True:
         choice = input("Enter '1' to get back to menu: \n")
 
