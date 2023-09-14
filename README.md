@@ -67,7 +67,7 @@ uses minimal resource, making it exceptionally resource-efficient.
 + An option to close the application by pressing the ESC button in the main menues.
 
 **Starting Screen**  
-![starting screen](media/readme-images/starting-screen.jpg)
+![starting screen](media/readme-images/welcome-screen.jpg)
 
 **Input Stock Trading Data**  
 ![input stock trading data](media/readme-images/trading-journal-input.jpg)
@@ -85,29 +85,55 @@ uses minimal resource, making it exceptionally resource-efficient.
 + Input validation testing can be seen in the testing section.
 
 **Input for dates**
-+ First, the user can decide if they want to push the current date or enter a date manually.
++ First, the user has to decide if they want to push the current date or enter a date manually.
 
 ![enter date option](media/readme-images/trading-journal-input.jpg)
 
++ When users opt to automatically enter the current date, a green-colored confirmation message will be displayed, indicating that the date input was successful.
+
+![enter date automatically](media/readme-images/enter-date-automatically.jpg)
+
+
 + When users opt to manually enter a date, the program enforces a specific date format to ensure data consistency. Upon successful entry in the correct format, a green-colored confirmation message will be displayed, indicating that the date input was successful.
 
-![date correct input](media/readme-images/enter-date-correct-input.jpg)
+![date correct input](media/readme-images/enter-date-manually.jpg)
 
 **Input for Stock Ticker Symbol**
-+ Input only accepts 1 - 4  letters.
-+ Letters will be converted to uppercase after input.  
++ Following the date entry, the user is prompted to input a stock ticker symbol, which must consist of 1 to 4 letters. Upon correct entry, the input is automatically converted to uppercase letters for standardized data handling.
 
-![stock ticker correct input](media/readme-images/stock-ticker-correct-input.jpg)
+![stock ticker correct input](media/readme-images/enter-stock-ticker.jpg)
 
 **Input for Shares Amount**
-+ Input only accepts positive numbers.  
++ Next, users are prompted to input the number of shares, which is restricted to positive numbers only. Upon successful entry, a green confirmation message will display the entered share amount for user validation.
 
-![shares amount correct input](media/readme-images/shares-amount-correct-input.jpg)
+![shares amount correct input](media/readme-images/enter-shares-amount.jpg)
+
+**Input Trade Direction**
++ Upon entering a trade direction with a single letter ("l" for long or "s" for short), the complete word ("Long" or "Short") will be displayed in the confirmation message, and it will also be parsed to the journal for clarity and consistency.
+
+![trade direction long](media/readme-images/enter-trade-direction-long.jpg)  
+
+![trade direction short](media/readme-images/enter-trade-direction-short.jpg)
 
 **Input Prices**
-+ Input only accepts numbers with 2 decimals for both entry and exit price.  
++ The input for both entry and exit prices exclusively accepts numbers with exactly two decimal places. After successful entry, a green confirmation message will be shown, displaying both the entry and exit prices for user verification.
 
-![entry and exit price correct input](media/readme-images/entry-exit-price-correct-input.jpg)
+![entry and exit price correct input](media/readme-images/enter-prices.jpg)
+
+**Displaying Journal Entry**
++ The final step in the process involves displaying a table containing all the entered data entries. The user is prompted to review the information and confirm if it is accurate. If the data is indeed correct, the program will request user confirmation to push the data to the journal or start the process again.
+
+![displaying journal entry](media/readme-images/enter-input-data-correct.jpg)
+
+**Entry is correct**
++ If the entry is correct and Y is entered, the entry will be pushed to the journal, in this case a google sheet.
+
+![entry is correct](media/readme-images/enter-data-is-correct.jpg)
+
+**Data is incorrect**
++ If the entry is incorrect and N is entered, the entry will be deleted and the input sequence starts again.
+
+![entry is incorrect](media/readme-images/enter-data-is-incorrect.jpg)
 
 ## **Features**
 
