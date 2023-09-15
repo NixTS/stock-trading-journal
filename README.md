@@ -355,16 +355,21 @@ All Python files have been inspected using a pep8 linter, and no errors have bee
 
 ### **Unresolved Errors, Issues and Bugs**
 
+To date, there are no known bugs or issues with this application.
+
 ## **Deployment**
 
 ### **Project Creation**
 
-The project was started by navigating to the [template --- link needed](https://github) and clicking 'Use this template'. Under Repository name I input woodworking-club and checked the 'Include all branches' checkbox. I then navigated to the new [repository --- link needed](). I then clicked the Code drop down and selected HTTPS and copied the link to the clipboard.
+The project was started by navigating to the [template provided](https://github.com/Code-Institute-Org/p3-template) and clicking 'Use this template'. Under Repository name I input stock-trading-journal and checked the 'Include all branches' checkbox. I then navigated to the new [repository](https://github.com/NixTS/stock-trading-journal). I then clicked the Open with GitHub Desktop button.
 
-Opening [Codeanywhere](https://app.codeanywhere.com/) and clicking 'New Workspace', I then pasted the [repository link --- link needed](https://github) into the URL field and clicked 'Create'. The following commands were used throughout the project:
+After GitHub Desktop opened this repository i then clicked "Open in Visual Studio Code"
+
+Opening [Visual Studio Code](https://code.visualstudio.com/). The following commands were used throughout the project:
 
 + git add filename - This command was used to add files to the staging area before committing.
 + git commit -m *commit message explaining the updates* - This command was used to commit changes to the local repository.
++ git reset HEAD^ - This command was used to delete the last commit but keep all the changes.
 + git push - This command is used to push all committed changes to the GitHub repository.
 
 ### **Run Locally**
