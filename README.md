@@ -374,6 +374,14 @@ Opening [Visual Studio Code](https://code.visualstudio.com/). The following comm
 
 ### **Run Locally**
 
+1. Navigate to the file to be run in Visual Studio Code
+2. Clicking the "Play" button to the top right of the code editor
+3. If not yet open, a new Terminal will open, running the selected file
+
+To stop the script file, either:
++ "Ctrl + C" - To stop the current file from running
++ "Kill Terminal" - By selecting the terminal tab, rightlicking and selecting "Kill Terminal"
+
 ### **Deployment**
 
 ## **Credits**
