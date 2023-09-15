@@ -349,7 +349,7 @@ Incorrect Input = The input is declined and a decline message in red is displaye
 
 All Python files have been inspected using a pep8 linter, and no errors have been detected.
 
-[C0de Institue PEP8 Linter](https://pep8ci.herokuapp.com)
+[Code Institue PEP8 Linter](https://pep8ci.herokuapp.com)
 
 ![linter tests](media/readme-images/linter-results.jpg)
 
