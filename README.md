@@ -281,9 +281,7 @@ Each input field within the program is safeguarded against errors through one of
 
 + **Restricting input to specific keys, ensuring only permissible characters are accepted.**
 
-![screenshow allowed keys](media/readme-images/allowed_keys.jpg)
-
-![example allowed keys](media/readme-images/example-allowed_keys.jpg)
+![screenshow allowed keys](media/readme-images/allowed-keys.jpg)
 
 Imposing constraints on the accepted input format, such as letters, numbers, numbers with decimals, specific dates like today or past dates thereby preventing invalid data entry.
 
