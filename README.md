@@ -302,12 +302,56 @@ Imposing constraints on the accepted input format, such as letters, numbers, num
 
 + **Validate Numbers with Decimals**  
     - As depicted in the image below, only numerical inputs with precisely two decimals are accepted, ensuring uniform and consistent data entry.
-    
+
 ![validate numbers with decimals](media/readme-images/validate-price.jpg)
 
 ### **Input Validation Testing**
+Within every programming cycle, rigorous testing plays a pivotal role in development. To guarantee a top-notch user experience, user inputs must undergo thorough validation to eliminate any potential room for errors or mistakes. Given the substantial volume of user inputs this program anticipates, a meticulous testing approach has been implemented to ensure data accuracy and reliability.
 
-### **Functionality**
+Testing has been conducted the following way:
+1. Running the programm
+2. Following the instructions to enter various inputs
+3. At every step the following inputs have been tested
+
+| Input                       | Example use | Example use | Example use |
+|-----------------------------|-------------|-------------|-------------|
+| Numbers                     | 1           | 200         | 999         |
+| Numbers w. decimals         | 10          | 50.05       | 99.95       |
+| Dates in other formats      | yyyy.mm.dd  | mm.dd.yyyy  | dd/mm/yyyy  |
+| Futures dates               | 31.01.2089  |             |             |
+| Impossible dates            | 34.01.2022  |             |             |
+| Letters uppercase           | ABC         |             |             |
+| Letters lowercase           | abc         |             |             |
+| correct input with addition | 100a        | ABC+        | 100§        |
+
+As evident from the testing table below, various inputs have undergone thorough examination and validation.
+
+Correct Input - Input is validated and confirmed with a green message. The program proceeds to the next stage.
+
+![correct message](media/readme-images/correct-dates-message.jpg)
+
+Incorrect Input = The input is declined and a decline message in red is displayed. The program reacts and repeats the last input sequence until valid input is provided.
+
+![incorrect messages](media/readme-images/incorrect-dates-message.jpg)
+
+| **Input**          | **Expected Input**   | **Correct Input** | **Incorrect Input** |
+|--------------------|----------------------|-------------------|---------------------|
+| Navigation menues  | Numbers              | As expected       | As expected         |
+| Date               | dd.mm.yyyy           | As expected       | As expected         |
+| Ticker Symbol      | 1 - 4 letters        | As expected       | As expected         |
+| Shares Amount      | Positive Number      | As expected       | As expected         |
+| Long/Short         | L or S               | As expected       | As expected         |
+| Entry/Exit price   | Number with two dec. | As expected       | As expected         |
+| Confirmation       | Y / N                | As expected       | As expected         |
+| Past trades amount | Numbers              | As expected       | As expected         |
+
+### **Other Tests**
+
+All Python files have been inspected using a pep8 linter, and no errors have been detected.
+
+[C0de Institue PEP8 Linter](https://pep8ci.herokuapp.com)
+
+![linter tests](media/readme-images/linter-results.jpg)
 
 ### **Unresolved Errors, Issues and Bugs**
 
