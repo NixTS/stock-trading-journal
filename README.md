@@ -286,16 +286,24 @@ Each input field within the program is safeguarded against errors through one of
 Imposing constraints on the accepted input format, such as letters, numbers, numbers with decimals, specific dates like today or past dates thereby preventing invalid data entry.
 
 + **Validate Dates**  
+    - In the image below, it's evident that dates must adhere to the correct format and can only be either today's date or a past date to be accepted.
+
 ![validate date](media/readme-images/validate-date.jpg)
 
 + **Validate Letters**  
+    - The image below confirms that only letters from 'a' to 'z' and 'A' to 'Z' are accepted as input. Additionally, the input is automatically converted to uppercase to ensure valid and consistent stock ticker symbols in the trading journal.
+
 ![validate ticker](media/readme-images/validate-ticker.jpg)
 
 + **Validate Numbers**  
-![validate numbers](media/readme-images/validate-number.jpg)
+    - In the displayed image, only positive numerical input is accepted.
+
+![validate numbers](media/readme-images/validate-shares-amount.jpg)
 
 + **Validate Numbers with Decimals**  
-![validate numbers with decimals](media/readme-images/validate-number-decimal.jpg)
+    - As depicted in the image below, only numerical inputs with precisely two decimals are accepted, ensuring uniform and consistent data entry.
+    
+![validate numbers with decimals](media/readme-images/validate-price.jpg)
 
 ### **Input Validation Testing**
 
