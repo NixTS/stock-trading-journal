@@ -1,6 +1,6 @@
 # **Stock Trading Journal**
 
-Live Website: [Stock Trading Journal - Not Yet Deployed](https://nixts)
+Live Website: [Stock Trading Journal - Not Yet Deployed](https://stock-trading-journal-2b41ca038319.herokuapp.com/)
 
 The Stock Trading Journal is a Python application designed to help daytraders manage and analyze their stock trading activities. This terminal-based app integrates with Google Sheets, allowing users to input trading data, view their past trades, and access statistics.
 
@@ -382,7 +382,46 @@ To stop the script file, either:
 + "Ctrl + C" - To stop the current file from running
 + "Kill Terminal" - By selecting the terminal tab, rightlicking and selecting "Kill Terminal"
 
-### **Deployment**
+### **Deployment to Live Service**
+
+GiftOfGiving project was deployed using the VS Code IDE, using Git and GitHub for version control. It is hosted on Heroku.
+
+1. Get Python file ready for deployment
+
+> Ensure the Python project is ready for deployment and includes all necessary dependencies in a requirements.txt file using this command.
+
+> pip3 freeze > requirements.txt
+
+2. Pushing GitHub
+
+> Make a commit and push the current version of the program to GitHub.
+
+> git commit -m "..."  
+> git push
+
+3. Heroku starting a new project
+
+> Visit the [Heroku](https://dashboard.heroku.com/) dashboard and click "New App" after that, give the project a name and select a reagion, next.
+
+4. Heroku project settings
+
+> In the project dashboard click "Settings" and head to the "Project Vars" section. CLick "Reveal Config Vars" opening two input fields. In the first field "KEYS" insert the word "CREDS". The second field "VALUE" copy and paste the contents of the CREDS.json file. This file is not open to the public and must be kept secret.
+
+5. Heroku Buildpacks
+
+> Head to "Buildpacks" section and click "Add Buildpack". In the newly opened window, select "Python" then "Add Buildpack". Repeat this step and add "Nodejs" next.
+
+6. Connecting to GitHub
+
+> Click the "Deploy" tab and select "GitHub" and then "Connect to Github".
+
+7. Selecting the Project
+
+> After successfully connecting to GitHub a searchbar opens. Type the name of the repository your project is in. A dropdown menu will open, click on the correct repository. This links up the repository from GitHub to heroku.
+
+8. Deployment
+
+> Scroll down and select either "Automatic deploys" or "Manual deploy". After the deployment is finish, head over to the "Overview" tab on heroku. On the top right, click "Open app" a new tab will open with the deployed project.
 
 ## **Credits**
 
