@@ -2,7 +2,7 @@
 
 Live Website: [Stock Trading Journal - Not Yet Deployed](https://stock-trading-journal-2b41ca038319.herokuapp.com/)
 
-The Stock Trading Journal is a Python application designed to help daytraders manage and analyze their stock trading activities. This terminal-based app integrates with Google Sheets, allowing users to input trading data, view their past trades, and access statistics.
+The Stock Trading Journal is a Python application designed to help day traders manage and analyze their stock trading activities. This terminal-based app integrates with Google Sheets, allowing users to input trading data, view their past trades, and access statistics.
 
 ![lucid chart](media/readme-images/lucid-chart.jpg)
 
@@ -28,7 +28,7 @@ The project's primary goal is to maintain a minimalist and straightforward termi
 
 + As a User, I want to input stock trading data without the danger of pushing incorrect data.
 + As a User, I want to access this app from anywhere.
-+ As a User, I dont want the app to use a lot of rescources from my machine.
++ As a User, I don't want the app to use a lot of resources from my machine.
 
 ### **Fulfillment**
 
@@ -55,7 +55,7 @@ This app is deployed to a cloud based service and connected to a google sheet on
 
 As a cloud-based application featuring a terminal interface, this software 
 uses minimal resource, making it exceptionally resource-efficient.
-> As a User, I dont want the app to use a lot of rescources from my machine.
+> As a User, I don't want the app to use a lot of resources from my machine.
 
 ## **Structure**
 
@@ -64,7 +64,7 @@ uses minimal resource, making it exceptionally resource-efficient.
 + After starting the Stock Trading Journal the user will be greeted by a short welcoming message.
 + Options are given to navigate the app by pressing buttons on the keyboard with direct input.
 + Each option has a short description of where this navigation leads to.
-+ An option to close the application by pressing the ESC button in the main menues.
++ An option to close the application by pressing the ESC button in the main menu's.
 
 **Starting Screen**  
 ![starting screen](media/readme-images/welcome-screen.jpg)
@@ -222,7 +222,7 @@ uses minimal resource, making it exceptionally resource-efficient.
 > Due to very strict input validation, a delete past trades is not necessary yet.
 
 + Return to main menu function.
-> Due to the relatively small scope of this program, a return to the main menu function was deemed  as unneccessary.
+> Due to the relatively small scope of this program, a return to the main menu function was deemed  as unnecessary.
 
 ## **Technologies**
 
@@ -244,7 +244,7 @@ uses minimal resource, making it exceptionally resource-efficient.
 + [Datetime](https://docs.python.org/3/library/datetime.html)
     - Used to manipulate times and dates
 + [RegEx](https://docs.python.org/3/library/re.html)
-    - Used to further controle and validate inputs
+    - Used to further control and validate inputs
 
 ### **Tools**
 
@@ -281,7 +281,7 @@ Each input field within the program is safeguarded against errors through one of
 
 + **Restricting input to specific keys, ensuring only permissible characters are accepted.**
 
-![screenshow allowed keys](media/readme-images/allowed-keys.jpg)
+![screenshot allowed keys](media/readme-images/allowed-keys.jpg)
 
 Imposing constraints on the accepted input format, such as letters, numbers, numbers with decimals, specific dates like today or past dates thereby preventing invalid data entry.
 
@@ -309,7 +309,7 @@ Imposing constraints on the accepted input format, such as letters, numbers, num
 Within every programming cycle, rigorous testing plays a pivotal role in development. To guarantee a top-notch user experience, user inputs must undergo thorough validation to eliminate any potential room for errors or mistakes. Given the substantial volume of user inputs this program anticipates, a meticulous testing approach has been implemented to ensure data accuracy and reliability.
 
 Testing has been conducted the following way:
-1. Running the programm
+1. Running the program
 2. Following the instructions to enter various inputs
 3. At every step the following inputs have been tested
 
@@ -336,7 +336,7 @@ Incorrect Input = The input is declined and a decline message in red is displaye
 
 | **Input**          | **Expected Input**   | **Correct Input** | **Incorrect Input** |
 |--------------------|----------------------|-------------------|---------------------|
-| Navigation menues  | Numbers              | As expected       | As expected         |
+| Navigation menu's  | Numbers              | As expected       | As expected         |
 | Date               | dd.mm.yyyy           | As expected       | As expected         |
 | Ticker Symbol      | 1 - 4 letters        | As expected       | As expected         |
 | Shares Amount      | Positive Number      | As expected       | As expected         |
@@ -349,7 +349,7 @@ Incorrect Input = The input is declined and a decline message in red is displaye
 
 All Python files have been inspected using a pep8 linter, and no errors have been detected.
 
-[Code Institue PEP8 Linter](https://pep8ci.herokuapp.com)
+[Code Institute PEP8 Linter](https://pep8ci.herokuapp.com)
 
 ![linter tests](media/readme-images/linter-results.jpg)
 
@@ -380,7 +380,7 @@ Opening [Visual Studio Code](https://code.visualstudio.com/). The following comm
 
 To stop the script file, either:
 + "Ctrl + C" - To stop the current file from running
-+ "Kill Terminal" - By selecting the terminal tab, rightlicking and selecting "Kill Terminal"
++ "Kill Terminal" - By selecting the terminal tab, right clicking and selecting "Kill Terminal"
 
 ### **Deployment to Live Service**
 
@@ -401,7 +401,7 @@ GiftOfGiving project was deployed using the VS Code IDE, using Git and GitHub fo
 
 3. Heroku starting a new project
 
-> Visit the [Heroku](https://dashboard.heroku.com/) dashboard and click "New App" after that, give the project a name and select a reagion, next.
+> Visit the [Heroku](https://dashboard.heroku.com/) dashboard and click "New App" after that, give the project a name and select a region, next.
 
 4. Heroku project settings
 
@@ -417,7 +417,7 @@ GiftOfGiving project was deployed using the VS Code IDE, using Git and GitHub fo
 
 7. Selecting the Project
 
-> After successfully connecting to GitHub a searchbar opens. Type the name of the repository your project is in. A dropdown menu will open, click on the correct repository. This links up the repository from GitHub to heroku.
+> After successfully connecting to GitHub a search bar opens. Type the name of the repository your project is in. A dropdown menu will open, click on the correct repository. This links up the repository from GitHub to heroku.
 
 8. Deployment
 
