@@ -425,6 +425,8 @@ GiftOfGiving project was deployed using the VS Code IDE, using Git and GitHub fo
 
 ## **Credits**
 
-### **Content**
+### **Project Idea**
+
+The inspiration for this project originated from my personal experience as a "hobby day trader." The repetitive task of manually filling out Excel sheets after each trade became cumbersome and frustrating. Many online trading journals also came with monthly subscription fees ranging from $20 to $50. In the future, I plan to expand this project by developing an automated trading journal connected to brokerage APIs. However, for the time being, this manual input stock trading journal serves as a cost-effective and efficient solution.
 
 ### **Acknowledgements**
