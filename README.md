@@ -1,6 +1,6 @@
 # **Stock Trading Journal**
 
-Live Website: [Stock Trading Journal - Not Yet Deployed](https://stock-trading-journal-2b41ca038319.herokuapp.com/)
+Live Website: [Stock Trading Journal](https://stock-trading-journal-2b41ca038319.herokuapp.com/)
 
 The Stock Trading Journal is a Python application designed to help day traders manage and analyze their stock trading activities. This terminal-based app integrates with Google Sheets, allowing users to input trading data, view their past trades, and access statistics.
 
