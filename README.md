@@ -6,9 +6,13 @@ The Stock Trading Journal is a Python application designed to help day traders m
 
 ![lucid chart](media/readme-images/lucid-chart.jpg)
 
+***
+
 ## **Project Goals**
 
 The project's primary goal is to maintain a minimalist and straightforward terminal-based design. It prioritizes simplicity and efficiency in user interactions. This design philosophy ensures that users can quickly and intuitively enter their stock trading data without any unnecessary complexity. Input validation mechanisms are implemented to guarantee data accuracy, minimizing errors and ensuring the integrity of the trading records. Unnecessary elements or features that could clutter the interface are intentionally omitted, keeping the user experience focused and efficient. The ultimate aim is to provide traders with a clean, distraction-free tool that simplifies data management, fostering a seamless and hassle-free experience for users.
+
+***
 
 ## **User Goals**
 
@@ -56,6 +60,8 @@ This app is deployed to a cloud based service and connected to a google sheet on
 As a cloud-based application featuring a terminal interface, this software 
 uses minimal resource, making it exceptionally resource-efficient.
 > As a User, I don't want the app to use a lot of resources from my machine.
+
+***
 
 ## **Structure**
 
@@ -185,6 +191,8 @@ uses minimal resource, making it exceptionally resource-efficient.
 
 ![all trades](media/readme-images/statistics-all-trades.jpg)
 
+***
+
 ## **Features**
 
 ### **Existing Features**
@@ -224,6 +232,8 @@ uses minimal resource, making it exceptionally resource-efficient.
 + Return to main menu function.
 > Due to the relatively small scope of this program, a return to the main menu function was deemed  as unnecessary.
 
+***
+
 ## **Technologies**
 
 ### **Language**
@@ -262,6 +272,8 @@ uses minimal resource, making it exceptionally resource-efficient.
     - Data and chart visualization
 + [CI Python Linter](https://pep8ci.herokuapp.com)
     - Code quality advisor software for error and mistakes detection
+
+***
 
 ## **Testing**
 
@@ -357,6 +369,8 @@ All Python files have been inspected using a pep8 linter, and no errors have bee
 
 To date, there are no known bugs or issues with this application.
 
+***
+
 ## **Deployment**
 
 ### **Project Creation**
@@ -422,6 +436,8 @@ GiftOfGiving project was deployed using the VS Code IDE, using Git and GitHub fo
 8. Deployment
 
 > Scroll down and select either "Automatic deploys" or "Manual deploy". After the deployment is finish, head over to the "Overview" tab on heroku. On the top right, click "Open app" a new tab will open with the deployed project.
+
+***
 
 ## **Credits**
 
